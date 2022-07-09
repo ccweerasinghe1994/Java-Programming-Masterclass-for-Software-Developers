@@ -36,6 +36,11 @@
         - [Code](#code-6)
           - [output](#output-6)
   - [7. Primitive Types](#7-primitive-types)
+    - [Java packages](#java-packages)
+    - [Wrapper Class](#wrapper-class)
+    - [Code Example](#code-example-3)
+      - [code](#code-7)
+      - [output](#output-7)
   - [8. byte, short, long and width](#8-byte-short-long-and-width)
   - [9. Casting in Java](#9-casting-in-java)
   - [10. Primitive Types Challenge](#10-primitive-types-challenge)
@@ -287,16 +292,54 @@ public class Hello {
 
 ## 7. Primitive Types
 ![image](../img/20.png)
-Java packages
+### Java packages
 
 ![image](../img/21.png)
+### Wrapper Class
+![image](../img/22.png)
+
+### Code Example
+
+#### code
+
+
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        int myIntValue = 122323;
+        int maxIntValue = Integer.MAX_VALUE;
+        int minIntValue = Integer.MIN_VALUE;
+        System.out.println("Minimum Integer value : " + minIntValue);
+        System.out.println("Maximum Integer value : " + maxIntValue);
+
+        System.out.println("Busted Max Value " + (maxIntValue + 1));
+        System.out.println("Busted Min Value " + (minIntValue - 1));
+    }
+}
+
+```
+
+#### output
+
+```shell
+Minimum Integer value : -2147483648
+Maximum Integer value : 2147483647
+Busted Max Value -2147483648
+Busted Min Value 2147483647
+```
+
+![image](../img/23.png)
+
+
+![image](../img/24.png)
+
+
+
 
 ## 8. byte, short, long and width
 
 ## 9. Casting in Java
-![image](../img/22.png)
-![image](../img/23.png)
-![image](../img/24.png)
 ![image](../img/25.png)
 ![image](../img/26.png)
 ![image](../img/27.png)
