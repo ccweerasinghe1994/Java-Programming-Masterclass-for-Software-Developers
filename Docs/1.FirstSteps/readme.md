@@ -7,7 +7,10 @@
 ![class](../img/3.png)
 
 ## 3. Defining the Main Method
+
 ![main](../img/4.png)
+![main](../img/5.png)
+
 ## 4. Hello World Challenge and Common Errors
 
 ## 5. Variables
