@@ -16,7 +16,9 @@
 ![image](../img/8.png)
 
 ### Code Example
+
 #### code
+
 let's create a Hello Class
 
 ```java
@@ -31,35 +33,71 @@ public class Hello {
 #### output
 
 ```shell
-Hello World
+🔥 -> Hello World
 ```
 
 ## 4. Hello World Challenge and Common Errors
 
-### Code Example
+### Challenge
 
-#### code
 
-let's create a Hello Class
+#### Question
+![image](../img/9.png)
+
+#### Answer
+
+##### Code
 
 ```java
-
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello Chamara");
+    }
+}
 
 ```
 
-#### output
+###### output
 
 ```shell
-
+🔥 -> Hello Chamara
 ```
+we can see the error from the ide
 
-![image](../img/9.png)
 ![image](../img/10.png)
+## 5. Variables
+
 ![image](../img/11.png)
 ![image](../img/12.png)
 ![image](../img/13.png)
 ![image](../img/14.png)
+
+### Challenge
+
+#### Question
 ![image](../img/15.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Hello {
+    public static void main(String[] args) {
+        int myFirstNumber = 5;
+        System.out.println(myFirstNumber);
+    }
+}
+
+```
+
+###### output
+
+```shell
+🔥 ->  5
+```
+
+
 ![image](../img/16.png)
 ![image](../img/17.png)
 ![image](../img/18.png)
@@ -145,9 +183,6 @@ let's create a Hello Class
 ![image](../img/98.png)
 ![image](../img/99.png)
 
-
-
-## 5. Variables
 
 ## 6. Starting out with Expressions
 
