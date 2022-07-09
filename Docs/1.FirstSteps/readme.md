@@ -42,6 +42,13 @@
       - [code](#code-7)
       - [output](#output-7)
   - [8. byte, short, long and width](#8-byte-short-long-and-width)
+    - [Code Example](#code-example-4)
+      - [code](#code-8)
+      - [output](#output-8)
+    - [long values](#long-values)
+    - [Code Example](#code-example-5)
+      - [code](#code-9)
+      - [output](#output-9)
   - [9. Casting in Java](#9-casting-in-java)
   - [10. Primitive Types Challenge](#10-primitive-types-challenge)
   - [11. float and double Primitive Types](#11-float-and-double-primitive-types)
@@ -339,9 +346,91 @@ Busted Min Value 2147483647
 
 ## 8. byte, short, long and width
 
-## 9. Casting in Java
+### Code Example
+
+#### code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        int myIntValue = 122_323;
+        int maxIntValue = Integer.MAX_VALUE;
+        int minIntValue = Integer.MIN_VALUE;
+        System.out.println("Minimum Integer value : " + minIntValue);
+        System.out.println("Maximum Integer value : " + maxIntValue);
+
+        System.out.println("Busted Max Value " + (maxIntValue + 1));
+        System.out.println("Busted Min Value " + (minIntValue - 1));
+        int maxIntValueTest = 2147483647;
+
+        byte myMinByteValue = Byte.MIN_VALUE;
+        byte myMaxByteValue = Byte.MAX_VALUE;
+        System.out.println("Minimum Byte value : " + myMaxByteValue);
+        System.out.println("Maximum Byte value : " + myMinByteValue);
+
+        short myMinShortValue = Short.MIN_VALUE;
+        short myMaxShortValue = Short.MAX_VALUE;
+        System.out.println("Minimum Short value : " + myMaxShortValue);
+        System.out.println("Maximum Short value : " + myMinShortValue);
+
+
+    }
+}
+
+```
+
+#### output
+
+```shell
+Minimum Integer value : -2147483648
+Maximum Integer value : 2147483647
+Busted Max Value -2147483648
+Busted Min Value 2147483647
+Minimum Byte value : 127
+Maximum Byte value : -128
+Minimum Short value : 32767
+Maximum Short value : -32768
+```
+DEtails about these data types
 ![image](../img/25.png)
+
+### long values
+### Code Example
+
+#### code
+
+
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        long myLongValue = 121212L;
+        long myMinLongValue = Long.MIN_VALUE;
+        long myMaxLongValue = Long.MAX_VALUE;
+        System.out.println("Minimum Long value : " + myMaxLongValue);
+        System.out.println("Maximum Long value : " + myMinLongValue);
+        long bigLongValue = 2147483647121212L;
+        System.out.println(bigLongValue);
+    }
+}
+
+```
+
+#### output
+
+```shell
+Minimum Long value : 9223372036854775807
+Maximum Long value : -9223372036854775808
+2147483647121212
+```
+
+
+## 9. Casting in Java
 ![image](../img/26.png)
+
+
+
+
 ![image](../img/27.png)
 ![image](../img/28.png)
 ![image](../img/29.png)
