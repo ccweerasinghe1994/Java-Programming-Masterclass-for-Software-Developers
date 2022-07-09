@@ -50,6 +50,9 @@
       - [code](#code-9)
       - [output](#output-9)
   - [9. Casting in Java](#9-casting-in-java)
+    - [Code Example](#code-example-6)
+      - [code](#code-10)
+      - [output](#output-10)
   - [10. Primitive Types Challenge](#10-primitive-types-challenge)
   - [11. float and double Primitive Types](#11-float-and-double-primitive-types)
   - [12. Floating Point Precision and a Challenge](#12-floating-point-precision-and-a-challenge)
@@ -429,9 +432,28 @@ Maximum Long value : -9223372036854775808
 ![image](../img/26.png)
 
 
+### Code Example
 
+#### code
+
+
+
+```java
+int myIntValueNew = maxIntValue / 2;
+        byte myTestByteValue = (byte) (myMaxByteValue / 2);
+        short myNewShortValue = (short) (myMaxShortValue / 2);
+        System.out.println(myNewShortValue);
+
+```
+
+#### output
+
+```shell
+16383
+```
 
 ![image](../img/27.png)
+
 ![image](../img/28.png)
 ![image](../img/29.png)
 ![image](../img/30.png)

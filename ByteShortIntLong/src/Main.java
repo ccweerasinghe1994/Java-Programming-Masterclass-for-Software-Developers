@@ -30,5 +30,8 @@ public class Main {
 
         int myIntValueNew = maxIntValue / 2;
         byte myTestByteValue = (byte) (myMaxByteValue / 2);
+        short myNewShortValue = (short) (myMaxShortValue / 2);
+        System.out.println(myNewShortValue);
+        
     }
 }
