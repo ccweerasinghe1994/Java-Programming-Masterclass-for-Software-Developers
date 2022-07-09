@@ -2,7 +2,7 @@
 
 #### code
 
-let's create a Hello Class
+
 
 ```java
 

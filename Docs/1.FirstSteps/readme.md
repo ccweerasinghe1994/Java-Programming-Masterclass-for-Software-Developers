@@ -96,12 +96,147 @@ public class Hello {
 ```shell
 🔥 ->  5
 ```
-
-
+### String Literal
 ![image](../img/16.png)
+
+we can use more complex operations on the assignment
+### Code Example
 ![image](../img/17.png)
+
+#### code
+
+```java
+public class Hello {
+    public static void main(String[] args) {
+        int myFirstNumber = 5;
+        int mySecondNumber = (5 + 3) * 23;
+        System.out.println(myFirstNumber);
+        System.out.println(mySecondNumber);
+    }
+}
+
+
+```
+
+#### output
+
+```shell
+🔥 ->  5
+🔥 ->  184
+```
+
+## 6. Starting out with Expressions
+### Challenge
+
+#### Question
 ![image](../img/18.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Hello {
+    public static void main(String[] args) {
+        int myFirstNumber = 5;
+        System.out.println(myFirstNumber);
+        int mySecondNumber = 12;
+        System.out.println(mySecondNumber);
+        int myThirdNumber = 6;
+        System.out.println(myThirdNumber);
+    }
+}
+
+```
+
+###### output
+
+```shell
+🔥 ->   5
+        12
+        6
+
+```
+let add some variables together
+### Code Example
+
+#### code
+
+```java
+public class Hello {
+    public static void main(String[] args) {
+        int myFirstNumber = 5;
+        System.out.println(myFirstNumber);
+        int mySecondNumber = 12;
+        System.out.println(mySecondNumber);
+        int myThirdNumber = 6;
+        System.out.println(myThirdNumber);
+
+        int result = myFirstNumber + mySecondNumber + myThirdNumber;
+        System.out.println(result);
+
+    }
+}
+
+
+```
+
+#### output
+
+```shell
+    5
+    12
+    6
+    23
+```
+### Challenge
+
+#### Question
 ![image](../img/19.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Hello {
+    public static void main(String[] args) {
+        int myFirstNumber = 5;
+        System.out.println(myFirstNumber);
+        int mySecondNumber = 12;
+        System.out.println(mySecondNumber);
+        int myThirdNumber = 6;
+        System.out.println(myThirdNumber);
+
+        int result = myFirstNumber + mySecondNumber + myThirdNumber;
+        System.out.println(result);
+
+        int myLastInt;
+
+        myLastInt = 1000 - result;
+        System.out.println(myLastInt);
+    }
+}
+
+```
+
+###### output
+
+```shell
+5
+12
+6
+23
+977
+
+```
+
+
+## 7. Primitive Types
+
+## 8. byte, short, long and width
+
+## 9. Casting in Java
 ![image](../img/20.png)
 ![image](../img/21.png)
 ![image](../img/22.png)
@@ -184,13 +319,6 @@ public class Hello {
 ![image](../img/99.png)
 
 
-## 6. Starting out with Expressions
-
-## 7. Primitive Types
-
-## 8. byte, short, long and width
-
-## 9. Casting in Java
 
 ## 10. Primitive Types Challenge
 
