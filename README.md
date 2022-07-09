@@ -1,3 +1,5 @@
 # Java Programming Masterclass for Software Developers
 
-![First Steps]("./Docs/FirstSteps/readme.md")
+- [Java Programming Masterclass for Software Developers](#java-programming-masterclass-for-software-developers)
+
+[First Steps](./Docs/1.FirstSteps/readme.md)
