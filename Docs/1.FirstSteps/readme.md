@@ -1,4 +1,5 @@
 # First Steps
+
 - [First Steps](#first-steps)
   - [Hello World Program](#hello-world-program)
   - [3. Defining the Main Method](#3-defining-the-main-method)
@@ -54,6 +55,11 @@
       - [code](#code-10)
       - [output](#output-10)
   - [10. Primitive Types Challenge](#10-primitive-types-challenge)
+    - [Challenge](#challenge-4)
+      - [Question](#question-4)
+      - [Answer](#answer-4)
+        - [Code](#code-11)
+          - [output](#output-11)
   - [11. float and double Primitive Types](#11-float-and-double-primitive-types)
   - [12. Floating Point Precision and a Challenge](#12-floating-point-precision-and-a-challenge)
   - [13. The char and boolean Primitive Data Types](#13-the-char-and-boolean-primitive-data-types)
@@ -68,6 +74,7 @@
   - [22. Operator Precedence and Operator Challenge](#22-operator-precedence-and-operator-challenge)
   - [23. First Steps Summary](#23-first-steps-summary)
   - [24. End of Remaster](#24-end-of-remaster)
+
 ## Hello World Program
 
 ![intro](./../img/1.png)
@@ -108,8 +115,8 @@ public class Hello {
 
 ### Challenge
 
-
 #### Question
+
 ![image](../img/9.png)
 
 #### Answer
@@ -130,9 +137,11 @@ public class Hello {
 ```shell
 🔥 -> Hello Chamara
 ```
+
 we can see the error from the ide
 
 ![image](../img/10.png)
+
 ## 5. Variables
 
 ![image](../img/11.png)
@@ -143,6 +152,7 @@ we can see the error from the ide
 ### Challenge
 
 #### Question
+
 ![image](../img/15.png)
 
 #### Answer
@@ -164,11 +174,15 @@ public class Hello {
 ```shell
 🔥 ->  5
 ```
+
 ### String Literal
+
 ![image](../img/16.png)
 
 we can use more complex operations on the assignment
+
 ### Code Example
+
 ![image](../img/17.png)
 
 #### code
@@ -194,9 +208,11 @@ public class Hello {
 ```
 
 ## 6. Starting out with Expressions
+
 ### Challenge
 
 #### Question
+
 ![image](../img/18.png)
 
 #### Answer
@@ -225,7 +241,9 @@ public class Hello {
         6
 
 ```
+
 let add some variables together
+
 ### Code Example
 
 #### code
@@ -257,9 +275,11 @@ public class Hello {
     6
     23
 ```
+
 ### Challenge
 
 #### Question
+
 ![image](../img/19.png)
 
 #### Answer
@@ -299,20 +319,21 @@ public class Hello {
 
 ```
 
-
 ## 7. Primitive Types
+
 ![image](../img/20.png)
+
 ### Java packages
 
 ![image](../img/21.png)
+
 ### Wrapper Class
+
 ![image](../img/22.png)
 
 ### Code Example
 
 #### code
-
-
 
 ```java
 public class Main {
@@ -341,11 +362,7 @@ Busted Min Value 2147483647
 
 ![image](../img/23.png)
 
-
 ![image](../img/24.png)
-
-
-
 
 ## 8. byte, short, long and width
 
@@ -394,15 +411,15 @@ Maximum Byte value : -128
 Minimum Short value : 32767
 Maximum Short value : -32768
 ```
+
 DEtails about these data types
 ![image](../img/25.png)
 
 ### long values
+
 ### Code Example
 
 #### code
-
-
 
 ```java
 public class Main {
@@ -427,16 +444,13 @@ Maximum Long value : -9223372036854775808
 2147483647121212
 ```
 
-
 ## 9. Casting in Java
-![image](../img/26.png)
 
+![image](../img/26.png)
 
 ### Code Example
 
 #### code
-
-
 
 ```java
 int myIntValueNew = maxIntValue / 2;
@@ -452,7 +466,43 @@ int myIntValueNew = maxIntValue / 2;
 16383
 ```
 
+## 10. Primitive Types Challenge
+
+### Challenge
+
+#### Question
 ![image](../img/27.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        byte anyByteValue = 122;
+        short anyShortValue = 12222;
+        int anyIntValue = 12222;
+
+        long total = 50000L + 10L *(anyByteValue+anyIntValue+anyShortValue);
+        System.out.println("Total Value : " + total);
+//      if we use short value we have to cast
+//      values inside the parentheses are considered as integers
+        short totalShort = (short) (1000 + 10*(anyByteValue+anyIntValue+anyShortValue));
+//      integer is the best value to use as a
+//      variable because java handles the casting default
+    }
+}
+```
+
+###### output
+
+```shell
+🔥 -> Total Value : 74566
+```
+
+## 11. float and double Primitive Types
+
 
 ![image](../img/28.png)
 ![image](../img/29.png)
@@ -526,12 +576,6 @@ int myIntValueNew = maxIntValue / 2;
 ![image](../img/97.png)
 ![image](../img/98.png)
 ![image](../img/99.png)
-
-
-
-## 10. Primitive Types Challenge
-
-## 11. float and double Primitive Types
 
 ## 12. Floating Point Precision and a Challenge
 
