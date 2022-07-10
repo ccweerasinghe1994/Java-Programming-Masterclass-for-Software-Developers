@@ -61,7 +61,26 @@
         - [Code](#code-11)
           - [output](#output-11)
   - [11. float and double Primitive Types](#11-float-and-double-primitive-types)
+    - [Code Example](#code-example-7)
+      - [code](#code-12)
+      - [output](#output-12)
+    - [Challenge](#challenge-5)
+      - [Question](#question-5)
+      - [Answer](#answer-5)
+        - [Code](#code-13)
+          - [output](#output-13)
   - [12. Floating Point Precision and a Challenge](#12-floating-point-precision-and-a-challenge)
+    - [Code Example](#code-example-8)
+      - [code](#code-14)
+      - [output](#output-14)
+    - [Challenge](#challenge-6)
+      - [Question](#question-6)
+      - [Answer](#answer-6)
+        - [Code](#code-15)
+          - [output](#output-15)
+    - [Code Example](#code-example-9)
+      - [code](#code-16)
+      - [output](#output-16)
   - [13. The char and boolean Primitive Data Types](#13-the-char-and-boolean-primitive-data-types)
   - [14. Primitive Types Recap and the String Data Type](#14-primitive-types-recap-and-the-string-data-type)
   - [15. Operators, Operands and Expressions](#15-operators-operands-and-expressions)
@@ -502,13 +521,161 @@ public class Main {
 ```
 
 ## 11. float and double Primitive Types
-
-
 ![image](../img/28.png)
+### Code Example
+
+#### code
+
+
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        float maxFloatValue = Float.MAX_VALUE;
+        float minFloatValue = Float.MIN_VALUE;
+        System.out.println("Max Float Value : "+maxFloatValue);
+        System.out.println("Min Float Value : "+minFloatValue);
+
+        double maxDoubleValue = Double.MAX_VALUE;
+        double minDoubleValue = Double.MIN_VALUE;
+        System.out.println("Max Double Value : "+maxDoubleValue);
+        System.out.println("Min Double Value : "+minDoubleValue);
+    }
+}
+
+```
+
+#### output
+
+```shell
+Max Float Value : 3.4028235E38
+Min Float Value : 1.4E-45
+Max Double Value : 1.7976931348623157E308
+Min Double Value : 4.9E-324
+```
+
+### Challenge
+
+#### Question
 ![image](../img/29.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+//        in decimal numbers default value java assumes is double
+//        so we can use cast
+        float testFloat = (float) 34.34;
+        float testFloat = 34.34f;
+        double testDouble = 23123123.234234234d;
+//        double is to prefer data type to use;
+    }
+}
+```
+
+###### output
 ![image](../img/30.png)
+
+## 12. Floating Point Precision and a Challenge
+### Code Example
+
+#### code
+
+
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        int myIntValue = 5 / 3;
+        float myFloatValue = 5f / 3f;
+//        double has more preseason than the float;
+//        doubles can process faster than the filters on modern computers
+        double myDoubleValue = 5.00 / 3.00;
+        System.out.println(myIntValue);
+        System.out.println(myFloatValue);
+        System.out.println(myDoubleValue);
+
+    }
+}
+
+```
+
+#### output
+
+```shell
+1
+1.6666666
+1.6666666666666667
+
+```
+
+### Challenge
+
+#### Question
 ![image](../img/31.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        double numberOfPounds = 200d;
+        double kilogramsPerPound = 0.45359237d;
+        double convertedToKgValue = (double) (numberOfPounds * kilogramsPerPound);
+        System.out.println(numberOfPounds + " pounds equal to " + convertedToKgValue + " kg");
+        
+    }
+}
+```
+
+###### output
+
+```shell
+🔥 -> 200.0 pounds equal to 90.718474 kg
+```
+
+### Code Example
+
+#### code
+
+
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        double pi = Math.PI;
+//        we can format the number for the readability.
+        double formattedVariable = 2_122_122.23_232_232d;
+        System.out.println(pi);
+        System.out.println(formattedVariable);
+
+    }
+}
+
+```
+
+#### output
+
+```shell
+3.141592653589793
+2122122.23232232
+```
 ![image](../img/32.png)
+
+## 13. The char and boolean Primitive Data Types
+
+## 14. Primitive Types Recap and the String Data Type
+
+## 15. Operators, Operands and Expressions
+
 ![image](../img/33.png)
 ![image](../img/34.png)
 ![image](../img/35.png)
@@ -577,13 +744,7 @@ public class Main {
 ![image](../img/98.png)
 ![image](../img/99.png)
 
-## 12. Floating Point Precision and a Challenge
 
-## 13. The char and boolean Primitive Data Types
-
-## 14. Primitive Types Recap and the String Data Type
-
-## 15. Operators, Operands and Expressions
 
 ## 16. Abbreviating Operators
 
