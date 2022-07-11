@@ -1,7 +1,6 @@
 ### Code Example
 
 #### code
-
 ```java
 
 

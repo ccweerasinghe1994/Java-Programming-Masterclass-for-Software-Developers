@@ -106,11 +106,35 @@
       - [code](#code-20)
       - [output](#output-19)
   - [17. if-then Statement](#17-if-then-statement)
+    - [If then statement](#if-then-statement)
+    - [Conditional logic](#conditional-logic)
   - [18. Logical and Operator](#18-logical-and-operator)
+    - [Code Example](#code-example-14)
+      - [code](#code-21)
+      - [output](#output-20)
+    - [Always use a code block](#always-use-a-code-block)
   - [19. Logical OR Operator](#19-logical-or-operator)
+    - [Code Example](#code-example-15)
+      - [code](#code-22)
+      - [output](#output-21)
   - [20. Assignment Operator VS Equals to Operator](#20-assignment-operator-vs-equals-to-operator)
+    - [Logical AND and OR](#logical-and-and-or)
+    - [Code Example](#code-example-16)
+      - [code](#code-23)
+      - [output](#output-22)
+    - [Code Example](#code-example-17)
+      - [code](#code-24)
+      - [output](#output-23)
+    - [Difference between equal and assignment operator](#difference-between-equal-and-assignment-operator)
+  - [The Not Operator](#the-not-operator)
   - [21. Ternary Operator](#21-ternary-operator)
+    - [Code Example](#code-example-18)
+      - [code](#code-25)
+      - [output](#output-24)
+    - [Ternary Operator](#ternary-operator)
   - [22. Operator Precedence and Operator Challenge](#22-operator-precedence-and-operator-challenge)
+    - [Summery of operators](#summery-of-operators)
+    - [Java Operator Precedence Table](#java-operator-precedence-table)
   - [23. First Steps Summary](#23-first-steps-summary)
   - [24. End of Remaster](#24-end-of-remaster)
 
@@ -835,6 +859,7 @@ previousResult 3
 ```
 
 ## 16. Abbreviating Operators
+![image](../img/46.png)
 ### Code Example
 
 #### code
@@ -903,34 +928,163 @@ previousResult 3
 ```
 
 ## 17. if-then Statement
+### If then statement
+![image](../img/47.png)
+### Conditional logic
+![image](../img/48.png)
 
 ## 18. Logical and Operator
+### Code Example
+
+#### code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        boolean isAlien = false;
+        if (!isAlien) {
+            System.out.println("it is not a alien");
+        }
+    }
+}
+
+```
+
+#### output
+
+```shell
+it is not a alien
+```
+
+### Always use a code block
+![image](../img/49.png)
 
 ## 19. Logical OR Operator
+### Code Example
+
+#### code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        int topScore = 80;
+        if (topScore >= 80) {
+            System.out.println("you go the top score");
+        }
+        int secondTopScore = 60;
+        if (topScore > secondTopScore && topScore > 70) {
+            System.out.println("You Are the best");
+        }
+
+    }
+}
+
+```
+
+#### output
+
+```shell
+you go the top score
+You Are the best
+```
 
 ## 20. Assignment Operator VS Equals to Operator
-
-## 21. Ternary Operator
-
-## 22. Operator Precedence and Operator Challenge
-
-## 23. First Steps Summary
-
-## 24. End of Remaster
-
-
-![image](../img/46.png)
-![image](../img/47.png)
-![image](../img/48.png)
-![image](../img/49.png)
+### Logical AND and OR
 ![image](../img/50.png)
+### Code Example
+
+#### code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        int topScore = 80;
+        if (topScore >= 80) {
+            System.out.println("you go the top score");
+        }
+        int secondTopScore = 60;
+        if (topScore > secondTopScore || topScore > 70) {
+            System.out.println("You Are the best");
+        }
+
+    }
+}
+
+```
+
+#### output
+
+```shell
+you go the top score
+You Are the best
+```
+
+### Code Example
+
+#### code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        int newValue = 12;
+        if (newValue == 12) {
+            System.out.println("These are the same");
+        }
+
+        boolean isCar = true;
+        if (isCar) {
+            System.out.println("This is not suppose to happen");
+        }
+    }
+}
+
+```
+
+#### output
+
+```shell
+These are the same
+This is not suppose to happen
+```
+### Difference between equal and assignment operator
 ![image](../img/51.png)
+
 ![image](../img/52.png)
+## The Not Operator
 ![image](../img/53.png)
 ![image](../img/54.png)
+## 21. Ternary Operator
+### Code Example
+
+#### code
+
+```java
+     int number = isCar ? 12 : 10;
+     System.out.println(number);
+
+```
+
+#### output
+
+```shell
+12
+```
+### Ternary Operator
 ![image](../img/55.png)
 ![image](../img/56.png)
 ![image](../img/57.png)
+## 22. Operator Precedence and Operator Challenge
+### Summery of operators
+[Summery of operators](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/opsummary.html)
+### Java Operator Precedence Table
+[Java Operator Precedence Table](https://www.cs.bilkent.edu.tr/~guvenir/courses/CS101/op_precedence.html)
+## 23. First Steps Summary
+## 24. End of Remaster
+
 ![image](../img/58.png)
 ![image](../img/59.png)
 ![image](../img/60.png)
