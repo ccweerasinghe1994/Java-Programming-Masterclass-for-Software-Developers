@@ -95,6 +95,12 @@
       - [code](#code-18)
       - [output](#output-17)
   - [15. Operators, Operands and Expressions](#15-operators-operands-and-expressions)
+    - [What are operators](#what-are-operators)
+    - [What are operands](#what-are-operands)
+    - [What Are Expressions](#what-are-expressions)
+    - [Code Example](#code-example-12)
+      - [code](#code-19)
+      - [output](#output-18)
   - [16. Abbreviating Operators](#16-abbreviating-operators)
   - [17. if-then Statement](#17-if-then-statement)
   - [18. Logical and Operator](#18-logical-and-operator)
@@ -769,14 +775,81 @@ lastString 1212
 ![image](../img/41.png)
 
 ## 15. Operators, Operands and Expressions
-###
-###
-###
-
+### What are operators
 ![image](../img/42.png)
+
+### What are operands
 ![image](../img/43.png)
+
+### What Are Expressions
 ![image](../img/44.png)
 ![image](../img/45.png)
+### Code Example
+
+#### code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+//        2 operators -> = +
+//        operands 1,2
+        int result = 1 + 2;
+        System.out.println("1 + 2 = " + result);
+
+        int previousResult = result;
+        System.out.println("previousResult " + previousResult);
+
+        result = result - 1;
+        System.out.println("3 -1 = " + result);
+        System.out.println("previousResult " + previousResult);
+        //multiplication
+        result = result * 10;
+        System.out.println("2 * 10 = " + result);
+
+        //division
+        result = result / 10;
+        System.out.println("20/10 = " + result);
+
+//        modules operators
+        result = result % 2;
+        System.out.println("2%2" + result);
+
+    }
+}
+
+```
+
+#### output
+
+```shell
+1 + 2 = 3
+previousResult 3
+3 -1 = 2
+previousResult 3
+2 * 10 = 20
+20/10 = 2
+2%2 = 0
+```
+
+## 16. Abbreviating Operators
+
+## 17. if-then Statement
+
+## 18. Logical and Operator
+
+## 19. Logical OR Operator
+
+## 20. Assignment Operator VS Equals to Operator
+
+## 21. Ternary Operator
+
+## 22. Operator Precedence and Operator Challenge
+
+## 23. First Steps Summary
+
+## 24. End of Remaster
+
+
 ![image](../img/46.png)
 ![image](../img/47.png)
 ![image](../img/48.png)
@@ -834,20 +907,3 @@ lastString 1212
 
 
 
-## 16. Abbreviating Operators
-
-## 17. if-then Statement
-
-## 18. Logical and Operator
-
-## 19. Logical OR Operator
-
-## 20. Assignment Operator VS Equals to Operator
-
-## 21. Ternary Operator
-
-## 22. Operator Precedence and Operator Challenge
-
-## 23. First Steps Summary
-
-## 24. End of Remaster
