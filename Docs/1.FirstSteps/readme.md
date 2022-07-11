@@ -87,7 +87,13 @@
     - [Boolean](#boolean)
     - [Code Example](#code-example-10)
       - [code](#code-17)
-  - [14. Primitive Types Recap and the String Data Type](#14-primitive-types-recap-and-the-string-data-type)
+  - [14. the String Data Type](#14-the-string-data-type)
+    - [String](#string)
+    - [What is a String](#what-is-a-string)
+    - [String in Java are immutable](#string-in-java-are-immutable)
+    - [Code Example](#code-example-11)
+      - [code](#code-18)
+      - [output](#output-17)
   - [15. Operators, Operands and Expressions](#15-operators-operands-and-expressions)
   - [16. Abbreviating Operators](#16-abbreviating-operators)
   - [17. if-then Statement](#17-if-then-statement)
@@ -711,15 +717,62 @@ public class Main {
 
 ```
 
-## 14. Primitive Types Recap and the String Data Type
-
-## 15. Operators, Operands and Expressions
-
+## 14. the String Data Type
+### String
 ![image](../img/37.png)
+### What is a String
 ![image](../img/38.png)
+### String in Java are immutable
 ![image](../img/39.png)
 ![image](../img/40.png)
+
+### Code Example
+
+#### code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        String myString = "this is a String";
+//        we can also add more String literals to the string variable
+        myString = myString + " this is more";
+        System.out.println(myString);
+//        we can add uni codes as well
+        myString = myString + " \u00A9 2019";
+        System.out.println(myString);
+
+        String numberString = "2323";
+        numberString = numberString + "23";
+//        this is not going to return sum
+//        because this is string concatenation
+        System.out.println(numberString);
+
+        String lastString = "12";
+        int myInt = 12;
+//        int was converted to a string
+        lastString = lastString + myInt;
+        System.out.println("lastString " + lastString);
+
+    }
+}
+
+```
+
+#### output
+
+```shell
+this is a String this is more
+this is a String this is more © 2019
+232323
+lastString 1212
+```
 ![image](../img/41.png)
+
+## 15. Operators, Operands and Expressions
+###
+###
+###
+
 ![image](../img/42.png)
 ![image](../img/43.png)
 ![image](../img/44.png)
