@@ -82,6 +82,11 @@
       - [code](#code-16)
       - [output](#output-16)
   - [13. The char and boolean Primitive Data Types](#13-the-char-and-boolean-primitive-data-types)
+    - [Char Type](#char-type)
+    - [Unicode](#unicode)
+    - [Boolean](#boolean)
+    - [Code Example](#code-example-10)
+      - [code](#code-17)
   - [14. Primitive Types Recap and the String Data Type](#14-primitive-types-recap-and-the-string-data-type)
   - [15. Operators, Operands and Expressions](#15-operators-operands-and-expressions)
   - [16. Abbreviating Operators](#16-abbreviating-operators)
@@ -671,15 +676,45 @@ public class Main {
 ![image](../img/32.png)
 
 ## 13. The char and boolean Primitive Data Types
+### Char Type
+![image](../img/33.png)
+### Unicode
+![image](../img/34.png)
+![image](../img/35.png)
+### Boolean
+![image](../img/36.png)
+
+### Code Example
+
+#### code
+
+
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        char myChar = 'D';
+        char myUnicodeChar = '\u0044';
+        System.out.println(myChar);
+        System.out.println(myUnicodeChar);
+
+        char myCopyWrightChar = '\u00A9';
+        System.out.println(myCopyWrightChar);
+
+        boolean myTrueValue = true;
+        boolean myFalseValue = false;
+
+        boolean isAgeOver21 = false;
+
+    }
+}
+
+```
 
 ## 14. Primitive Types Recap and the String Data Type
 
 ## 15. Operators, Operands and Expressions
 
-![image](../img/33.png)
-![image](../img/34.png)
-![image](../img/35.png)
-![image](../img/36.png)
 ![image](../img/37.png)
 ![image](../img/38.png)
 ![image](../img/39.png)
