@@ -140,8 +140,6 @@
       - [Answer](#answer-7)
         - [Code](#code-26)
           - [output](#output-25)
-  - [23. First Steps Summary](#23-first-steps-summary)
-  - [24. End of Remaster](#24-end-of-remaster)
 
 ## Hello World Program
 
@@ -1125,50 +1123,7 @@ reminder : 0.0
 My Bool is true 
 ```
 
-## 23. First Steps Summary
-## 24. End of Remaster
 
-![image](../img/59.png)
-![image](../img/60.png)
-![image](../img/61.png)
-![image](../img/62.png)
-![image](../img/63.png)
-![image](../img/64.png)
-![image](../img/65.png)
-![image](../img/66.png)
-![image](../img/67.png)
-![image](../img/68.png)
-![image](../img/69.png)
-![image](../img/70.png)
-![image](../img/71.png)
-![image](../img/72.png)
-![image](../img/73.png)
-![image](../img/74.png)
-![image](../img/75.png)
-![image](../img/76.png)
-![image](../img/77.png)
-![image](../img/78.png)
-![image](../img/79.png)
-![image](../img/80.png)
-![image](../img/81.png)
-![image](../img/82.png)
-![image](../img/83.png)
-![image](../img/84.png)
-![image](../img/85.png)
-![image](../img/86.png)
-![image](../img/87.png)
-![image](../img/88.png)
-![image](../img/89.png)
-![image](../img/90.png)
-![image](../img/91.png)
-![image](../img/92.png)
-![image](../img/93.png)
-![image](../img/94.png)
-![image](../img/95.png)
-![image](../img/96.png)
-![image](../img/97.png)
-![image](../img/98.png)
-![image](../img/99.png)
 
 
 
