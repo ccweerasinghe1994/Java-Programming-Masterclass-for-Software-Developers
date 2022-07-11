@@ -102,6 +102,9 @@
       - [code](#code-19)
       - [output](#output-18)
   - [16. Abbreviating Operators](#16-abbreviating-operators)
+    - [Code Example](#code-example-13)
+      - [code](#code-20)
+      - [output](#output-19)
   - [17. if-then Statement](#17-if-then-statement)
   - [18. Logical and Operator](#18-logical-and-operator)
   - [19. Logical OR Operator](#19-logical-or-operator)
@@ -832,6 +835,72 @@ previousResult 3
 ```
 
 ## 16. Abbreviating Operators
+### Code Example
+
+#### code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+//        2 operators -> = +
+//        operands 1,2
+        int result = 1 + 2;
+        System.out.println("1 + 2 = " + result);
+
+        int previousResult = result;
+        System.out.println("previousResult " + previousResult);
+
+        result = result - 1;
+        System.out.println("3 -1 = " + result);
+        System.out.println("previousResult " + previousResult);
+        //multiplication
+        result = result * 10;
+        System.out.println("2 * 10 = " + result);
+
+        //division
+        result = result / 10;
+        System.out.println("20/10 = " + result);
+
+//        modules operators
+        result = result % 2;
+        System.out.println("2%2 = " + result);
+
+//        result = result + 1;
+        result++;
+        System.out.println("0+1 = " + result);
+        result--;
+        System.out.println("1-1 = " + result);
+        result += 2;
+        System.out.println("0+2 = " + result);
+//        result = result*10;
+        result *= 10;
+        System.out.println("2*10 = " + result);
+        result /= 10;
+        System.out.println("20/10 = " + result);
+        result -= 2;
+        System.out.println("2-2 = " + result);
+    }
+}
+
+```
+
+#### output
+
+```shell
+1 + 2 = 3
+previousResult 3
+3 -1 = 2
+previousResult 3
+2 * 10 = 20
+20/10 = 2
+2%2 = 0
+0+1 = 1
+1-1 = 0
+0+2 = 2
+2*10 = 20
+20/10 = 2
+2-2 = 0
+```
 
 ## 17. if-then Statement
 
