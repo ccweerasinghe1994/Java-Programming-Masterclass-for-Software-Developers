@@ -135,6 +135,11 @@
   - [22. Operator Precedence and Operator Challenge](#22-operator-precedence-and-operator-challenge)
     - [Summery of operators](#summery-of-operators)
     - [Java Operator Precedence Table](#java-operator-precedence-table)
+    - [Challenge](#challenge-7)
+      - [Question](#question-7)
+      - [Answer](#answer-7)
+        - [Code](#code-26)
+          - [output](#output-25)
   - [23. First Steps Summary](#23-first-steps-summary)
   - [24. End of Remaster](#24-end-of-remaster)
 
@@ -1082,10 +1087,47 @@ This is not suppose to happen
 [Summery of operators](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/opsummary.html)
 ### Java Operator Precedence Table
 [Java Operator Precedence Table](https://www.cs.bilkent.edu.tr/~guvenir/courses/CS101/op_precedence.html)
+### Challenge
+
+#### Question
+![image](../img/58.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        double myDouble = 20.00d;
+        double secondVar = 80.00d;
+        double result = (myDouble + secondVar) * 100;
+        System.out.println("result : " + result);
+        double reminder = result % 40.00d;
+        System.out.println("reminder : " + reminder);
+        boolean myBool;
+        myBool = reminder == 0;
+        System.out.println("My Bool is " + myBool);
+
+        if (!myBool) {
+            System.out.println("Got Some Reminder");
+        }
+
+    }
+}
+```
+
+###### output
+
+```shell
+result : 10000.0
+reminder : 0.0
+My Bool is true 
+```
+
 ## 23. First Steps Summary
 ## 24. End of Remaster
 
-![image](../img/58.png)
 ![image](../img/59.png)
 ![image](../img/60.png)
 ![image](../img/61.png)
