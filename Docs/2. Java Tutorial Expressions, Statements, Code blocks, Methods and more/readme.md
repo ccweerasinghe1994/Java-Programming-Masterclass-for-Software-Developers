@@ -60,6 +60,8 @@
         - [Code](#code-13)
           - [output](#output-11)
   - [8. Method Challenge - Final Code Changes](#8-method-challenge---final-code-changes)
+        - [Code](#code-14)
+          - [output](#output-12)
   - [9. DiffMerge Tool Introduction](#9-diffmerge-tool-introduction)
   - [10. Install DiffMerge](#10-install-diffmerge)
   - [11. Using DiffMerge](#11-using-diffmerge)
@@ -69,12 +71,12 @@
   - [15. Coding Exercises Example Part 3](#15-coding-exercises-example-part-3)
   - [23. Method Overloading](#23-method-overloading)
     - [Code Example](#code-example-11)
-      - [code](#code-14)
-      - [output](#output-12)
-  - [24. Method Overloading Recap](#24-method-overloading-recap)
-    - [Code Example](#code-example-12)
       - [code](#code-15)
       - [output](#output-13)
+  - [24. Method Overloading Recap](#24-method-overloading-recap)
+    - [Code Example](#code-example-12)
+      - [code](#code-16)
+      - [output](#output-14)
   - [25. Seconds and Minutes Challenge](#25-seconds-and-minutes-challenge)
   - [26. Bonus Challenge Solution](#26-bonus-challenge-solution)
 
@@ -586,9 +588,9 @@ public class Main {
     public static int calculateHighScorePosition(int score) {
         if (score >= 1000) {
             return 1;
-        } else if (score >= 500 && score < 1000) {
+        } else if (score >= 500 ) {
             return 2;
-        } else if (score >= 100 && score < 500) {
+        } else if (score >= 100 ) {
             return 3;
         } else {
             return 4;
@@ -607,6 +609,62 @@ chamara Manage to get position 4 on the high score table
 ```
 
 ## 8. Method Challenge - Final Code Changes
+
+we can write the above challenge in many ways.
+
+##### Code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        String name = "chamara";
+
+        int score = 1500;
+        int position = calculateHighScorePosition(score);
+        displayHighScorePosition(name, position);
+
+        score = 900;
+        position = calculateHighScorePosition(score);
+        displayHighScorePosition(name, position);
+
+        score = 400;
+        position = calculateHighScorePosition(score);
+        displayHighScorePosition(name, position);
+
+        score = 50;
+        position = calculateHighScorePosition(score);
+        displayHighScorePosition(name, position);
+
+    }
+
+    public static void displayHighScorePosition(String name, int position) {
+        System.out.println(name + " Manage to get position " + position + " on the high score table");
+    }
+
+    public static int calculateHighScorePosition(int score) {
+        int position = 4;
+
+        if (score >= 1000) {
+            position = 1;
+        } else if (score >= 500) {
+            position = 2;
+        } else if (score >= 100) {
+            position = 3;
+        }
+        return position;
+
+    }
+}
+```
+
+###### output
+
+```shell
+chamara Manage to get position 1 on the high score table
+chamara Manage to get position 2 on the high score table
+chamara Manage to get position 3 on the high score table
+chamara Manage to get position 4 on the high score table
+```
 
 ## 9. DiffMerge Tool Introduction
 
