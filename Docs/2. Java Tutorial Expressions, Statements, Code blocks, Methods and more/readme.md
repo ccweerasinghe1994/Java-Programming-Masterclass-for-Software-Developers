@@ -50,10 +50,13 @@
     - [Code Example](#code-example-9)
       - [code](#code-11)
       - [output](#output-9)
-  - [7. More On Methods And A Challenge](#7-more-on-methods-and-a-challenge)
     - [Code Example](#code-example-10)
       - [code](#code-12)
       - [output](#output-10)
+  - [7. More On Methods And A Challenge](#7-more-on-methods-and-a-challenge)
+    - [Code Example](#code-example-11)
+      - [code](#code-13)
+      - [output](#output-11)
   - [8. Method Challenge - Final Code Changes](#8-method-challenge---final-code-changes)
   - [9. DiffMerge Tool Introduction](#9-diffmerge-tool-introduction)
   - [10. Install DiffMerge](#10-install-diffmerge)
@@ -63,13 +66,13 @@
   - [14. Coding Exercises Example Part 2](#14-coding-exercises-example-part-2)
   - [15. Coding Exercises Example Part 3](#15-coding-exercises-example-part-3)
   - [23. Method Overloading](#23-method-overloading)
-    - [Code Example](#code-example-11)
-      - [code](#code-13)
-      - [output](#output-11)
-  - [24. Method Overloading Recap](#24-method-overloading-recap)
     - [Code Example](#code-example-12)
       - [code](#code-14)
       - [output](#output-12)
+  - [24. Method Overloading Recap](#24-method-overloading-recap)
+    - [Code Example](#code-example-13)
+      - [code](#code-15)
+      - [output](#output-13)
   - [25. Seconds and Minutes Challenge](#25-seconds-and-minutes-challenge)
   - [26. Bonus Challenge Solution](#26-bonus-challenge-solution)
 
@@ -454,20 +457,88 @@ if(condition){
 
 ## 6. Methods In Java
 
+Let's refactor this code to use Java methods.
+
 ### Code Example
 
 #### code
 
 ```java
+public class Main {
+    public static void main(String[] args) {
+        boolean gameOver = true;
+        int score = 500;
+        int levelCompleted = 5;
+        int bonus = 100;
 
+        if (gameOver) {
+            int finalScore = score + (levelCompleted * bonus);
+            System.out.println("your Final Score is : " + finalScore);
+        }
+
+        score = 10000;
+        levelCompleted = 8;
+        bonus = 200;
+
+        if (gameOver) {
+            int finalScore = score + (levelCompleted * bonus);
+            System.out.println("your Final Score is : " + finalScore);
+        }
+    }
+}
 
 ```
 
 #### output
 
 ```shell
+your Final Score is : 1000
+your Final Score is : 11600
+```
+
+Next, refactor this code to use methods.
+
+### Code Example
+
+#### code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        boolean gameOver = true;
+        int score = 500;
+        int levelCompleted = 5;
+        int bonus = 100;
+        System.out.println("Your Final Score is: " + calculateScore(gameOver, score, levelCompleted, bonus));
+
+
+        score = 10000;
+        levelCompleted = 8;
+        bonus = 200;
+
+        System.out.println("Your Final Score is: " + calculateScore(gameOver, score, levelCompleted, bonus));
+    }
+
+    public static int calculateScore(boolean gameOver, int score, int levelCompleted, int bonus) {
+        if (gameOver) {
+            int finalScore = score + (levelCompleted * bonus);
+            finalScore += bonus;
+            return finalScore;
+        }
+        return -1;
+    }
+}
 
 ```
+
+#### output
+
+```shell
+Your Final Score is: 1100
+Your Final Score is: 11800
+```
+
+Side note.Here we are returning minus one because.Minus one is considered faulty in programming and algorithms Look for that.
 
 ## 7. More On Methods And A Challenge
 
