@@ -43,17 +43,17 @@
         - [Code](#code-9)
           - [output](#output-8)
   - [5. if then else Recap](#5-if-then-else-recap)
+    - [If then else recap](#if-then-else-recap)
     - [Code Example](#code-example-8)
       - [code](#code-10)
-      - [output](#output-9)
   - [6. Methods In Java](#6-methods-in-java)
     - [Code Example](#code-example-9)
       - [code](#code-11)
-      - [output](#output-10)
+      - [output](#output-9)
   - [7. More On Methods And A Challenge](#7-more-on-methods-and-a-challenge)
     - [Code Example](#code-example-10)
       - [code](#code-12)
-      - [output](#output-11)
+      - [output](#output-10)
   - [8. Method Challenge - Final Code Changes](#8-method-challenge---final-code-changes)
   - [9. DiffMerge Tool Introduction](#9-diffmerge-tool-introduction)
   - [10. Install DiffMerge](#10-install-diffmerge)
@@ -65,11 +65,11 @@
   - [23. Method Overloading](#23-method-overloading)
     - [Code Example](#code-example-11)
       - [code](#code-13)
-      - [output](#output-12)
+      - [output](#output-11)
   - [24. Method Overloading Recap](#24-method-overloading-recap)
     - [Code Example](#code-example-12)
       - [code](#code-14)
-      - [output](#output-13)
+      - [output](#output-12)
   - [25. Seconds and Minutes Challenge](#25-seconds-and-minutes-challenge)
   - [26. Bonus Challenge Solution](#26-bonus-challenge-solution)
 
@@ -423,20 +423,34 @@ A side note here.Check the above example.We can see the printing part has been d
 
 ## 5. if then else Recap
 
+### If then else recap
+
+- The if statement identified which statement or code block to run based on the value of an expression. in other words based on a specific condition.
+- Inside the code block defined by curly braces {and} we can have one or multiple statements
+- We can use the else statement after the if. In that case, when the condition is false, the S block will be executed.
+
+- We can also add elsif to test multiple conditions.
+- The following is the basic structure of the if then else statement.
+
 ### Code Example
 
 #### code
 
 ```java
+if(condition){
 
+// if statement codeblock
 
+}else{
+
+// else statement codeblock
+
+}
 ```
 
-#### output
-
-```shell
-
-```
+![if then else](../img/60.png)
+![if then else](../img/61.png)
+![if then else](../img/62.png)
 
 ## 6. Methods In Java
 
