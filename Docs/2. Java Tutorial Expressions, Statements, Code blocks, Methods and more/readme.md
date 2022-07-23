@@ -54,9 +54,11 @@
       - [code](#code-12)
       - [output](#output-10)
   - [7. More On Methods And A Challenge](#7-more-on-methods-and-a-challenge)
-    - [Code Example](#code-example-11)
-      - [code](#code-13)
-      - [output](#output-11)
+    - [Challenge](#challenge-2)
+      - [Question](#question-2)
+      - [Answer](#answer-2)
+        - [Code](#code-13)
+          - [output](#output-11)
   - [8. Method Challenge - Final Code Changes](#8-method-challenge---final-code-changes)
   - [9. DiffMerge Tool Introduction](#9-diffmerge-tool-introduction)
   - [10. Install DiffMerge](#10-install-diffmerge)
@@ -66,11 +68,11 @@
   - [14. Coding Exercises Example Part 2](#14-coding-exercises-example-part-2)
   - [15. Coding Exercises Example Part 3](#15-coding-exercises-example-part-3)
   - [23. Method Overloading](#23-method-overloading)
-    - [Code Example](#code-example-12)
+    - [Code Example](#code-example-11)
       - [code](#code-14)
       - [output](#output-12)
   - [24. Method Overloading Recap](#24-method-overloading-recap)
-    - [Code Example](#code-example-13)
+    - [Code Example](#code-example-12)
       - [code](#code-15)
       - [output](#output-13)
   - [25. Seconds and Minutes Challenge](#25-seconds-and-minutes-challenge)
@@ -542,19 +544,66 @@ Side note.Here we are returning minus one because.Minus one is considered faulty
 
 ## 7. More On Methods And A Challenge
 
-### Code Example
+We can assign methods to variables.
 
-#### code
+### Challenge
+
+#### Question
+
+![question](../img/63.png)
+
+#### Answer
+
+##### Code
 
 ```java
+public class Main {
+    public static void main(String[] args) {
+        String name = "chamara";
 
+        int score = 1500;
+        int position = calculateHighScorePosition(score);
+        displayHighScorePosition(name, position);
 
+        score = 900;
+        position = calculateHighScorePosition(score);
+        displayHighScorePosition(name, position);
+
+        score = 400;
+        position = calculateHighScorePosition(score);
+        displayHighScorePosition(name, position);
+
+        score = 50;
+        position = calculateHighScorePosition(score);
+        displayHighScorePosition(name, position);
+
+    }
+
+    public static void displayHighScorePosition(String name, int position) {
+        System.out.println(name + " Manage to get position " + position + " on the high score table");
+    }
+
+    public static int calculateHighScorePosition(int score) {
+        if (score >= 1000) {
+            return 1;
+        } else if (score >= 500 && score < 1000) {
+            return 2;
+        } else if (score >= 100 && score < 500) {
+            return 3;
+        } else {
+            return 4;
+        }
+    }
+}
 ```
 
-#### output
+###### output
 
 ```shell
-
+chamara Manage to get position 1 on the high score table
+chamara Manage to get position 2 on the high score table
+chamara Manage to get position 3 on the high score table
+chamara Manage to get position 4 on the high score table
 ```
 
 ## 8. Method Challenge - Final Code Changes
