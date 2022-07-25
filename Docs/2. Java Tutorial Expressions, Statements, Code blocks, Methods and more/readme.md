@@ -62,21 +62,19 @@
   - [8. Method Challenge - Final Code Changes](#8-method-challenge---final-code-changes)
         - [Code](#code-14)
           - [output](#output-12)
-  - [9. DiffMerge Tool Introduction](#9-diffmerge-tool-introduction)
-  - [10. Install DiffMerge](#10-install-diffmerge)
-  - [11. Using DiffMerge](#11-using-diffmerge)
-  - [12. Coding Exercises](#12-coding-exercises)
-  - [13. Coding Exercises Example Part 1](#13-coding-exercises-example-part-1)
-  - [14. Coding Exercises Example Part 2](#14-coding-exercises-example-part-2)
-  - [15. Coding Exercises Example Part 3](#15-coding-exercises-example-part-3)
   - [23. Method Overloading](#23-method-overloading)
     - [Code Example](#code-example-11)
       - [code](#code-15)
       - [output](#output-13)
+    - [Challenge](#challenge-3)
+      - [Question](#question-3)
+      - [Answer](#answer-3)
+        - [Code](#code-16)
+          - [output](#output-14)
   - [24. Method Overloading Recap](#24-method-overloading-recap)
     - [Code Example](#code-example-12)
-      - [code](#code-16)
-      - [output](#output-14)
+      - [code](#code-17)
+      - [output](#output-15)
   - [25. Seconds and Minutes Challenge](#25-seconds-and-minutes-challenge)
   - [26. Bonus Challenge Solution](#26-bonus-challenge-solution)
 
@@ -666,35 +664,101 @@ chamara Manage to get position 3 on the high score table
 chamara Manage to get position 4 on the high score table
 ```
 
-## 9. DiffMerge Tool Introduction
-
-## 10. Install DiffMerge
-
-## 11. Using DiffMerge
-
-## 12. Coding Exercises
-
-## 13. Coding Exercises Example Part 1
-
-## 14. Coding Exercises Example Part 2
-
-## 15. Coding Exercises Example Part 3
-
 ## 23. Method Overloading
+
+concept using the same method, with different parameters.
 
 ### Code Example
 
 #### code
 
 ```java
+public class Main {
+    public static void main(String[] args) {
+        calculateScore("chamara", 400);
+        calculateScore(450);
+        calculateScore();
+    }
 
+    public static int calculateScore(String playerName, int score) {
+        System.out.println("Player " + playerName + " scored " + score);
+        return score * 1000;
+    }
+
+    public static int calculateScore(int score) {
+        System.out.println("Unnamed Player scored " + score);
+        return score * 1000;
+    }
+
+    public static int calculateScore() {
+        System.out.println("no Player, no score ");
+        return 0;
+    }
+}
 
 ```
+
+We can't just change the return type and it doesn't work.We have to change the functions signature.
 
 #### output
 
 ```shell
+Player chamara scored 400
+Unnamed Player scored 450
+no Player, no score 
+```
 
+### Challenge
+
+#### Question
+
+![question](../img/64.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        calcFeetAndInchesToCentimeters(157);
+    }
+
+    public static double calcFeetAndInchesToCentimeters(double feet, double inches) {
+        if (feet < 0) {
+            System.out.println("invalid input");
+            return -1;
+        }
+        if (inches < 0 || inches > 12) {
+            System.out.println("invalid input");
+            return -1;
+        }
+        double convertedCmValue = 2.54 * ((feet * 12) + inches);
+        System.out.println(feet + " feat and " + inches + " inches equal to " + convertedCmValue + " cm");
+        return convertedCmValue;
+    }
+
+    public static double calcFeetAndInchesToCentimeters(double inches) {
+        if (inches < 0) {
+            System.out.println("invalid input");
+            return -1;
+        }
+
+        double feet = (int) (inches / 12);
+        double remainingInches = (int) inches % 12;
+        System.out.println(inches + " inches equals " + feet + " feet and " + remainingInches + " inches");
+        double convertedCmValue = calcFeetAndInchesToCentimeters(feet, remainingInches);
+        return convertedCmValue;
+    }
+
+}
+```
+
+###### output
+
+```shell
+157.0 inches equals 13.0 feet and 1.0 inches
+13.0 feat and 1.0 inches equal to 398.78000000000003 cm
 ```
 
 ## 24. Method Overloading Recap
