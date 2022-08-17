@@ -72,9 +72,6 @@
         - [Code](#code-16)
           - [output](#output-14)
   - [24. Method Overloading Recap](#24-method-overloading-recap)
-    - [Code Example](#code-example-12)
-      - [code](#code-17)
-      - [output](#output-15)
   - [25. Seconds and Minutes Challenge](#25-seconds-and-minutes-challenge)
   - [26. Bonus Challenge Solution](#26-bonus-challenge-solution)
 
@@ -208,7 +205,7 @@ You score was 5000
 
 but
 
-When we are using an if conditions without the curly braces it only consider the first line only. whatever comes after the first line will not include as  inside of the if condition it will execute no matter what.
+When we are using an if conditions without the curly braces it only consider the first line only. whatever comes after the first line will not include as inside of the if condition it will execute no matter what.
 
 ### Code Example
 
@@ -705,7 +702,7 @@ We can't just change the return type and it doesn't work.We have to change the f
 ```shell
 Player chamara scored 400
 Unnamed Player scored 450
-no Player, no score 
+no Player, no score
 ```
 
 ### Challenge
@@ -763,20 +760,19 @@ public class Main {
 
 ## 24. Method Overloading Recap
 
-### Code Example
+![img](../img/65.png)
 
-#### code
+![img](../img/66.png)
 
-```java
+![img](../img/67.png)
 
+![img](../img/68.png)
 
-```
+![img](../img/69.png)
 
-#### output
+![img](../img/70.png)
 
-```shell
-
-```
+![img](../img/71.png)
 
 ## 25. Seconds and Minutes Challenge
 
