@@ -72,11 +72,18 @@
         - [Code](#code-16)
           - [output](#output-14)
   - [24. Method Overloading Recap](#24-method-overloading-recap)
-    - [Code Example](#code-example-12)
-      - [code](#code-17)
-      - [output](#output-15)
   - [25. Seconds and Minutes Challenge](#25-seconds-and-minutes-challenge)
+    - [Challenge](#challenge-4)
+      - [Question](#question-4)
+      - [Answer](#answer-4)
+        - [Code](#code-17)
+          - [output](#output-15)
   - [26. Bonus Challenge Solution](#26-bonus-challenge-solution)
+    - [Challenge](#challenge-5)
+      - [Question](#question-5)
+      - [Answer](#answer-5)
+        - [Code](#code-18)
+          - [output](#output-16)
 
 ## 2. Keywords And Expressions
 
@@ -208,7 +215,7 @@ You score was 5000
 
 but
 
-When we are using an if conditions without the curly braces it only consider the first line only. whatever comes after the first line will not include as  inside of the if condition it will execute no matter what.
+When we are using an if conditions without the curly braces it only consider the first line only. whatever comes after the first line will not include as inside of the if condition it will execute no matter what.
 
 ### Code Example
 
@@ -705,7 +712,7 @@ We can't just change the return type and it doesn't work.We have to change the f
 ```shell
 Player chamara scored 400
 Unnamed Player scored 450
-no Player, no score 
+no Player, no score
 ```
 
 ### Challenge
@@ -763,41 +770,104 @@ public class Main {
 
 ## 24. Method Overloading Recap
 
-### Code Example
+![img](../img/65.png)
 
-#### code
+![img](../img/66.png)
 
-```java
+![img](../img/67.png)
 
+![img](../img/68.png)
 
-```
+![img](../img/69.png)
 
-#### output
+![img](../img/70.png)
 
-```shell
-
-```
+![img](../img/71.png)
 
 ## 25. Seconds and Minutes Challenge
 
+### Challenge
+
+#### Question
+
+![img](../img/72.png)
+![img](../img/73.png)
+![img](../img/74.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(getDurationString(61,0));
+        System.out.println(getDurationString(5,45));
+        System.out.println(getDurationString(60,60));
+        System.out.println(getDurationString(115,145));
+        System.out.println(getDurationString(45,59));
+        System.out.println(getDurationString(200));
+        System.out.println(getDurationString(11200));
+
+    }
+
+    public static String getDurationString(long minutes, long seconds) {
+        String message = "Invalid Values";
+        long hoursCalculated, minutesCalculated;
+        if (minutes < 0 || seconds < 0 || seconds > 59) {
+            return message;
+        }
+        hoursCalculated = minutes / 60;
+        minutesCalculated = minutes % 60;
+        return hoursCalculated + "h " + minutesCalculated + "m " + seconds + "s";
+    }
+
+    public static String getDurationString(long seconds) {
+        String message = "Invalid Values";
+        long calculatedMinutes, calculatedSeconds;
+        if (seconds < 0) {
+            return message;
+        }
+        calculatedMinutes = seconds / 60;
+        calculatedSeconds = seconds % 60;
+        return getDurationString(calculatedMinutes, calculatedSeconds);
+    }
+}
+```
+
+###### output
+
+```shell
+1h 1m 0s
+0h 5m 45s
+Invalid Values
+Invalid Values
+0h 45m 59s
+0h 3m 20s
+3h 6m 40s
+
+```
+
 ## 26. Bonus Challenge Solution
 
-![image](../img/59.png)
-![image](../img/60.png)
-![image](../img/61.png)
-![image](../img/62.png)
-![image](../img/63.png)
-![image](../img/64.png)
-![image](../img/65.png)
-![image](../img/66.png)
-![image](../img/67.png)
-![image](../img/68.png)
-![image](../img/69.png)
-![image](../img/70.png)
-![image](../img/71.png)
-![image](../img/72.png)
-![image](../img/73.png)
-![image](../img/74.png)
+### Challenge
+
+#### Question
+
+#### Answer
+
+##### Code
+
+```java
+
+```
+
+###### output
+
+```shell
+🔥 ->
+```
+
 ![image](../img/75.png)
 ![image](../img/76.png)
 ![image](../img/77.png)
