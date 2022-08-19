@@ -14,6 +14,11 @@
       - [code](#code-2)
       - [output](#output-2)
   - [Day of the Week Challenge](#day-of-the-week-challenge)
+    - [Challenge](#challenge-1)
+      - [Question](#question-1)
+      - [Answer](#answer-1)
+        - [Code](#code-3)
+          - [output](#output-3)
   - [The for Statement (+Challenge Exercise)](#the-for-statement-challenge-exercise)
   - [For Loop Recap](#for-loop-recap)
   - [Sum 3 and 5 Challenge](#sum-3-and-5-challenge)
@@ -158,6 +163,119 @@ Character is : a
 ```
 
 ## Day of the Week Challenge
+
+### Challenge
+
+#### Question
+
+![img](img/2.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        printDayOfTheWeek(0);
+        printDayOfTheWeek(1);
+        printDayOfTheWeek(2);
+        printDayOfTheWeek(3);
+        printDayOfTheWeek(4);
+        printDayOfTheWeek(5);
+        printDayOfTheWeek(6);
+        printDayOfTheWeek(7);
+        printDayOfTheWeek(-1);
+        printDayOfTheWeek(10);
+
+        printDayOfThWeekUsingIfElse(0);
+        printDayOfThWeekUsingIfElse(1);
+        printDayOfThWeekUsingIfElse(2);
+        printDayOfThWeekUsingIfElse(3);
+        printDayOfThWeekUsingIfElse(4);
+        printDayOfThWeekUsingIfElse(5);
+        printDayOfThWeekUsingIfElse(6);
+        printDayOfThWeekUsingIfElse(7);
+        printDayOfThWeekUsingIfElse(-1);
+        printDayOfThWeekUsingIfElse(10);
+
+    }
+
+    public static void printDayOfTheWeek(int number) {
+        switch (number) {
+            case 0:
+                System.out.println("Monday");
+                break;
+            case 1:
+                System.out.println("Tuesday");
+                break;
+            case 2:
+                System.out.println("Wednesday");
+                break;
+            case 3:
+                System.out.println("Thursday");
+                break;
+            case 4:
+                System.out.println("Friday");
+                break;
+            case 5:
+                System.out.println("Saturday");
+                break;
+            case 6:
+                System.out.println("Sunday");
+                break;
+            default:
+                System.out.println("invalid date");
+        }
+    }
+
+    public static void printDayOfThWeekUsingIfElse(int day) {
+        if (day == 0) {
+            System.out.println("Monday");
+        } else if (day == 1) {
+            System.out.println("Tuesday");
+        } else if (day == 2) {
+            System.out.println("Wednesday");
+        } else if (day == 3) {
+            System.out.println("Thursday");
+        } else if (day == 4) {
+            System.out.println("Friday");
+        } else if (day == 5) {
+            System.out.println("Saturday");
+        } else if (day == 6) {
+            System.out.println("Sunday");
+        } else {
+            System.out.println("invalid date");
+        }
+    }
+}
+```
+
+###### output
+
+```shell
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Sunday
+invalid date
+invalid date
+invalid date
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Sunday
+invalid date
+invalid date
+invalid date
+```
 
 ## The for Statement (+Challenge Exercise)
 
