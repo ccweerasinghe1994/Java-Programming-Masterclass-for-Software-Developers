@@ -20,6 +20,14 @@
         - [Code](#code-3)
           - [output](#output-3)
   - [The for Statement (+Challenge Exercise)](#the-for-statement-challenge-exercise)
+    - [Code Example](#code-example-2)
+      - [code](#code-4)
+      - [output](#output-4)
+    - [Challenge](#challenge-2)
+      - [Question](#question-2)
+      - [Answer](#answer-2)
+        - [Code](#code-5)
+          - [output](#output-5)
   - [For Loop Recap](#for-loop-recap)
   - [Sum 3 and 5 Challenge](#sum-3-and-5-challenge)
   - [The while and do while statements (+Challenge Exercise)](#the-while-and-do-while-statements-challenge-exercise)
@@ -278,6 +286,100 @@ invalid date
 ```
 
 ## The for Statement (+Challenge Exercise)
+
+### Code Example
+
+#### code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        for(int i = 2;i<9;i++){
+            System.out.println("10000 at "+(i)+"% interest is: "+String.format("%.2f",calculateInterest(10000,i)));
+        }
+        System.out.println("***********************************************************");
+        for(int i = 8;i>1;i--){
+            System.out.println("10000 at "+(i)+"% interest is: "+String.format("%.2f",calculateInterest(10000,i)));
+        }
+    }
+
+    public static double calculateInterest(double amount, double interest) {
+        return amount * (interest / 100);
+    }
+}
+
+```
+
+#### output
+
+```shell
+10000 at 2% interest is: 200.00
+10000 at 3% interest is: 300.00
+10000 at 4% interest is: 400.00
+10000 at 5% interest is: 500.00
+10000 at 6% interest is: 600.00
+10000 at 7% interest is: 700.00
+10000 at 8% interest is: 800.00
+***********************************************************
+10000 at 8% interest is: 800.00
+10000 at 7% interest is: 700.00
+10000 at 6% interest is: 600.00
+10000 at 5% interest is: 500.00
+10000 at 4% interest is: 400.00
+10000 at 3% interest is: 300.00
+10000 at 2% interest is: 200.00
+```
+
+### Challenge
+
+#### Question
+
+![img](img/3.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        int primeNumberCount = 0;
+        for (int i = 5; i < 100; i++) {
+            if (isPrimeNumber(i)) {
+                System.out.println("prime number : " + i);
+                primeNumberCount++;
+            }
+            if (primeNumberCount == 3) {
+                break;
+            }
+        }
+    }
+
+    public static double calculateInterest(double amount, double interest) {
+        return amount * (interest / 100);
+    }
+
+    public static boolean isPrimeNumber(int number) {
+        if (number == 1) {
+            return false;
+        }
+        for(int i =2;i<=number/2;i++){
+            if(number%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+###### output
+
+```shell
+prime number : 5
+prime number : 7
+prime number : 11
+```
 
 ## For Loop Recap
 
