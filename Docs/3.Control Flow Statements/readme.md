@@ -52,6 +52,9 @@
         - [Code](#code-9)
           - [output](#output-9)
   - [Parsing Values from a String](#parsing-values-from-a-string)
+    - [Code Example](#code-example-4)
+      - [code](#code-10)
+      - [output](#output-10)
   - [Reading User Input](#reading-user-input)
   - [Problems and Solutions](#problems-and-solutions)
   - [Reading User Input Challenge](#reading-user-input-challenge)
@@ -665,6 +668,39 @@ sum of digits in number 10 : 1
 ```
 
 ## Parsing Values from a String
+
+### Code Example
+
+#### code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        String numberAsString = "2121";
+        System.out.println("number as string : "+numberAsString);
+
+        int number = Integer.parseInt(numberAsString);
+        System.out.println("number "+number);
+
+        numberAsString+=1;
+        number+=1;
+        System.out.println("number as string : "+numberAsString);
+        System.out.println("number "+number);
+
+
+    }
+}
+
+```
+
+#### output
+
+```shell
+number as string : 2121
+number 2121
+number as string : 21211
+number 2122
+```
 
 ## Reading User Input
 
