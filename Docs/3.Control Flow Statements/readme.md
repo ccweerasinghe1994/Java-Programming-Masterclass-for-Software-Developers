@@ -30,6 +30,11 @@
           - [output](#output-5)
   - [For Loop Recap](#for-loop-recap)
   - [Sum 3 and 5 Challenge](#sum-3-and-5-challenge)
+    - [Challenge](#challenge-3)
+      - [Question](#question-3)
+      - [Answer](#answer-3)
+        - [Code](#code-6)
+          - [output](#output-6)
   - [The while and do while statements (+Challenge Exercise)](#the-while-and-do-while-statements-challenge-exercise)
   - [While and Do While Recap](#while-and-do-while-recap)
   - [Digit Sum Challenge](#digit-sum-challenge)
@@ -393,6 +398,47 @@ prime number : 11
 ![img](img/11.png)
 
 ## Sum 3 and 5 Challenge
+
+### Challenge
+
+#### Question
+
+![img](img/12.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        long numberCount = 0;
+        long sum = 0;
+        for (int i = 1; i <= 1000; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                System.out.println("This number is divided by 3 and 5 : " + i);
+                sum+=i;
+                numberCount++;
+            }
+            if(numberCount==5){
+                break;
+            }
+        }
+        System.out.println("SUM : "+sum);
+    }
+}
+```
+
+###### output
+
+```shell
+This number is divided by 3 and 5 : 15
+This number is divided by 3 and 5 : 30
+This number is divided by 3 and 5 : 45
+This number is divided by 3 and 5 : 60
+This number is divided by 3 and 5 : 75
+SUM : 225
+```
 
 ## The while and do while statements (+Challenge Exercise)
 
