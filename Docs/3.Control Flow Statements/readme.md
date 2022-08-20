@@ -383,6 +383,15 @@ prime number : 11
 
 ## For Loop Recap
 
+![img](img/4.png)
+![img](img/5.png)
+![img](img/6.png)
+![img](img/7.png)
+![img](img/8.png)
+![img](img/9.png)
+![img](img/10.png)
+![img](img/11.png)
+
 ## Sum 3 and 5 Challenge
 
 ## The while and do while statements (+Challenge Exercise)
