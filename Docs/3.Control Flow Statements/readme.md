@@ -604,6 +604,16 @@ Total numbers of even numbers found : 5
 
 ## While and Do While Recap
 
+![img](img/15.png)
+![img](img/16.png)
+![img](img/17.png)
+![img](img/18.png)
+![img](img/19.png)
+![img](img/20.png)
+![img](img/21.png)
+![img](img/22.png)
+![img](img/23.png)
+
 ## Digit Sum Challenge
 
 ## Parsing Values from a String
