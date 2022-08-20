@@ -46,6 +46,11 @@
           - [output](#output-8)
   - [While and Do While Recap](#while-and-do-while-recap)
   - [Digit Sum Challenge](#digit-sum-challenge)
+    - [Challenge](#challenge-5)
+      - [Question](#question-5)
+      - [Answer](#answer-5)
+        - [Code](#code-9)
+          - [output](#output-9)
   - [Parsing Values from a String](#parsing-values-from-a-string)
   - [Reading User Input](#reading-user-input)
   - [Problems and Solutions](#problems-and-solutions)
@@ -615,6 +620,49 @@ Total numbers of even numbers found : 5
 ![img](img/23.png)
 
 ## Digit Sum Challenge
+
+### Challenge
+
+#### Question
+
+![img](img/24.png)
+![img](img/25.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("sum of digits in number 4563 : "+sumDigits(4563));
+        System.out.println("sum of digits in number -1 : "+sumDigits(-1));
+        System.out.println("sum of digits in number 9 : "+sumDigits(9));
+        System.out.println("sum of digits in number 10 : "+sumDigits(10));
+    }
+    public static int sumDigits(int number){
+        if(number<10){
+            return -1;
+        }
+        int sum = 0;
+        while(number>0){
+            int lastNumber = number%10;
+            sum+=lastNumber;
+            number = number/10;
+        }
+        return sum;
+    }
+}
+```
+
+###### output
+
+```shell
+sum of digits in number 4563 : 18
+sum of digits in number -1 : -1
+sum of digits in number 9 : -1
+sum of digits in number 10 : 1
+```
 
 ## Parsing Values from a String
 
