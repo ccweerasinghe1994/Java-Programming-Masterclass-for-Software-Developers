@@ -56,6 +56,9 @@
       - [code](#code-10)
       - [output](#output-10)
   - [Reading User Input](#reading-user-input)
+    - [Code Example](#code-example-5)
+      - [code](#code-11)
+      - [output](#output-11)
   - [Problems and Solutions](#problems-and-solutions)
   - [Reading User Input Challenge](#reading-user-input-challenge)
   - [Min and Max Challenge](#min-and-max-challenge)
@@ -703,6 +706,39 @@ number 2122
 ```
 
 ## Reading User Input
+
+### Code Example
+
+#### code
+
+```java
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your year of birth: ");
+        int yearOfBirth = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Enter your name: ");
+        String name = scanner.nextLine();
+        System.out.println(name+" your age is "+(2022-yearOfBirth));
+        scanner.close();
+    }
+}
+```
+
+#### output
+
+```shell
+Enter your year of birth:
+1994
+Enter your name:
+chamara
+chamara your age is 28
+```
 
 ## Problems and Solutions
 
