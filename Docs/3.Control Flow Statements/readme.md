@@ -70,6 +70,11 @@
         - [Code](#code-13)
           - [output](#output-13)
   - [Min and Max Challenge](#min-and-max-challenge)
+    - [Challenge](#challenge-7)
+      - [Question](#question-7)
+      - [Answer](#answer-7)
+        - [Code](#code-14)
+          - [output](#output-14)
 
 ## The switch statement (+Challenge Exercise)
 
@@ -865,3 +870,59 @@ Sum of numbers : 32
 ```
 
 ## Min and Max Challenge
+
+### Challenge
+
+#### Question
+
+![img](./img/28.png)
+
+#### Answer
+
+##### Code
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int minimumNumber = 0, maximumNumber = 0;
+        while (true) {
+            System.out.println("Enter the number");
+            if (scanner.hasNextInt()) {
+                int number = scanner.nextInt();
+                if (minimumNumber == 0){
+                    minimumNumber = number;
+                    maximumNumber = number;
+                } else {
+                  if(number<minimumNumber){
+                      minimumNumber = number;
+                  } else if (number>maximumNumber) {
+                      maximumNumber = number;
+                  }
+                }
+            } else {
+                System.out.println("maximum number : " + maximumNumber);
+                System.out.println("minimum number : " + minimumNumber);
+                break;
+            }
+
+        }
+        scanner.close();
+    }
+}
+```
+
+###### output
+
+```shell
+Enter the number
+12
+Enter the number
+2
+Enter the number
+sd
+maximum number : 12
+minimum number : 2
+```
