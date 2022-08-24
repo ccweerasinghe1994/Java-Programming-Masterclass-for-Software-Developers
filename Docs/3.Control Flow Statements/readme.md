@@ -60,7 +60,15 @@
       - [code](#code-11)
       - [output](#output-11)
   - [Problems and Solutions](#problems-and-solutions)
+    - [Code Example](#code-example-6)
+      - [code](#code-12)
+      - [output](#output-12)
   - [Reading User Input Challenge](#reading-user-input-challenge)
+    - [Challenge](#challenge-6)
+      - [Question](#question-6)
+      - [Answer](#answer-6)
+        - [Code](#code-13)
+          - [output](#output-13)
   - [Min and Max Challenge](#min-and-max-challenge)
 
 ## The switch statement (+Challenge Exercise)
@@ -742,6 +750,118 @@ chamara your age is 28
 
 ## Problems and Solutions
 
+### Code Example
+
+#### code
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your year of birth: ");
+        boolean hasInt = scanner.hasNextInt();
+        if (hasInt) {
+            int yearOfBirth = scanner.nextInt();
+            scanner.nextLine();
+
+            System.out.println("Enter your name: ");
+            String name = scanner.nextLine();
+            int age = 2022 - yearOfBirth;
+            if (age >= 0 && age <= 100) {
+                System.out.println(name + " your age is " + age);
+            } else {
+                System.out.println("Invalid year of birth");
+            }
+        } else {
+            System.out.println("Unable to parse the year");
+        }
+        scanner.close();
+    }
+}
+
+```
+
+#### output
+
+```shell
+Enter your year of birth:
+1999
+Enter your name:
+chamara
+chamara your age is 23
+```
+
 ## Reading User Input Challenge
+
+### Challenge
+
+#### Question
+
+![img](./img/26.png)
+![img](./img/27.png)
+
+#### Answer
+
+##### Code
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int counter = 1;
+        int sum = 0;
+        while (counter <= 10) {
+            System.out.println("Enter Number #" + counter);
+            if (scanner.hasNextInt()) {
+                int number = scanner.nextInt();
+                sum += number;
+                counter++;
+
+            }else{
+                System.out.println("Enter a number");
+            }
+            scanner.nextLine();
+        }
+        if (counter > 10) {
+            System.out.println("Sum of numbers : " + sum);
+        }
+        scanner.close();
+
+    }
+}
+```
+
+###### output
+
+```shell
+Enter Number #1
+12
+Enter Number #2
+sdsd
+Enter a number
+Enter Number #2
+12
+Enter Number #3
+1
+Enter Number #4
+1
+Enter Number #5
+1
+Enter Number #6
+1
+Enter Number #7
+1
+Enter Number #8
+1
+Enter Number #9
+1
+Enter Number #10
+1
+Sum of numbers : 32
+```
 
 ## Min and Max Challenge
