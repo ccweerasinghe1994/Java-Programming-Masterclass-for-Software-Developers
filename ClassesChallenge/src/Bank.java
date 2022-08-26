@@ -6,7 +6,7 @@ public class Bank {
     private String phoneNumber;
 
     public Bank() {
-        this(00000000000,0000,"default name","default email","000000000");
+        this(00000000000, 0000, "default name", "default email", "000000000");
         System.out.println("Empty Constructor is called");
     }
 
@@ -17,6 +17,10 @@ public class Bank {
         this.customerName = customerName;
         this.email = email;
         this.phoneNumber = phoneNumber;
+    }
+
+    public Bank(String customerName, String email, String phoneNumber) {
+        this(123456789, 000, email, customerName, phoneNumber);
     }
 
     public void deposit(double amount) {

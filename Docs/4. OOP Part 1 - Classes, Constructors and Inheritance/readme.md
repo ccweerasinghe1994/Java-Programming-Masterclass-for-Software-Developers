@@ -179,10 +179,10 @@ your current balance is : $356.0
 insufficient funds
 ```
 
-
 ### Code Example
 
 #### code
+
 ```java
 public class Bank {
     private int accountNumber;
@@ -290,6 +290,83 @@ insufficient funds
 ```
 
 ## Constructors - Part 2 (+Challenge Exercise)
+
+### Challenge
+
+#### Question
+
+![img](./img/2.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class VipCustomer {
+    private String name;
+    private double creditLimit;
+    private String email;
+
+
+    public VipCustomer() {
+        this("default name", 10000000, "default email");
+        System.out.println("Empty Constructor is called");
+    }
+
+    public VipCustomer(String name, double creditLimit) {
+        this(name, creditLimit, "default email");
+        System.out.println("Constructor with two parameters is called");
+    }
+
+    public VipCustomer(String name, double creditLimit, String email) {
+        System.out.println("Constructor with full parameters is called");
+        this.name = name;
+        this.creditLimit = creditLimit;
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getCreditLimit() {
+        return creditLimit;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        VipCustomer elon = new VipCustomer();
+        System.out.println(elon.getName() +
+                " is a vip customer and his email is " + elon.getEmail() + ". and has a credit limit of " + elon.getCreditLimit());
+        VipCustomer brain = new VipCustomer("andrew", 200000);
+        System.out.println(brain.getName() +
+                " is a vip customer and his email is " + brain.getEmail() + ". and has a credit limit of " + brain.getCreditLimit());
+        VipCustomer andrew = new VipCustomer("andrew", 30000, "andrew@gmail.com");
+        System.out.println(andrew.getName() +
+                " is a vip customer and his email is " + andrew.getEmail() + ". and has a credit limit of " + andrew.getCreditLimit());
+
+    }
+}
+
+```
+
+###### output
+
+```shell
+Constructor with full parameters is called
+Empty Constructor is called
+default name is a vip customer and his email is default email. and has a credit limit of 1.0E7
+Constructor with full parameters is called
+Constructor with two parameters is called
+andrew is a vip customer and his email is default email. and has a credit limit of 200000.0
+Constructor with full parameters is called
+andrew is a vip customer and his email is andrew@gmail.com. and has a credit limit of 30000.0
+```
 
 ## Inheritance - Part 1
 
