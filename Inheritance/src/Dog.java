@@ -14,7 +14,7 @@ public class Dog extends Animal {
         this.coat = coat;
     }
 
-    private void chew(){
+    private void chew() {
         System.out.println("Dog.chew() called");
     }
 
@@ -24,5 +24,25 @@ public class Dog extends Animal {
         System.out.println("Dog.eat() called");
         chew();
         super.eat();
+    }
+
+    public void walk() {
+        System.out.println("Dog.walk() is called");
+//        move(2);
+        move(2);
+    }
+
+    public void run(){
+        System.out.println("Dog.run() is called");
+        move(10);
+    }
+    private void moveLegs(int speed){
+        System.out.println("Dog.moveLegs() called");
+    }
+    @Override
+    public void move(int speed) {
+        System.out.println("Dog.move() called");
+        moveLegs(speed);
+        super.move(speed);
     }
 }
