@@ -645,7 +645,46 @@ Animal.move() is called. Animal is moving at 10
 
 ## this vs super
 
+![img](./img/13.png)
+![img](./img/14.png)
+![img](./img/15.png)
+![img](./img/16.png)
+![img](./img/17.png)
+![img](./img/18.png)
+![img](./img/19.png)
+![img](./img/20.png)
+![img](./img/21.png)
+![img](./img/22.png)
+
 ## Method Overloading vs Overriding Recap
+
+![img](./img/23.png)
+![img](./img/24.png)
+![img](./img/25.png)
+![img](./img/26.png)
+![img](./img/27.png)
+![img](./img/28.png)
+![img](./img/29.png)
+![img](./img/30.png)
+![img](./img/31.png)
+![img](./img/32.png)
+![img](./img/33.png)
+![img](./img/34.png)
+![img](./img/35.png)
+![img](./img/36.png)
+![img](./img/37.png)
+![img](./img/38.png)
+![img](./img/39.png)
+![img](./img/40.png)
+![img](./img/41.png)
+![img](./img/42.png)
+![img](./img/43.png)
+![img](./img/44.png)
+![img](./img/45.png)
+![img](./img/46.png)
+![img](./img/47.png)
+![img](./img/48.png)
+![img](./img/49.png)
 
 ## Static vs Instance Methods
 
