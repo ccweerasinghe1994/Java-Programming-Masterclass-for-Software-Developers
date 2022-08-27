@@ -670,6 +670,9 @@ Animal.move() is called. Animal is moving at 10
 ![img](./img/32.png)
 ![img](./img/33.png)
 ![img](./img/34.png)
+
+## Static vs Instance Methods
+
 ![img](./img/35.png)
 ![img](./img/36.png)
 ![img](./img/37.png)
@@ -685,8 +688,6 @@ Animal.move() is called. Animal is moving at 10
 ![img](./img/47.png)
 ![img](./img/48.png)
 ![img](./img/49.png)
-
-## Static vs Instance Methods
 
 ## Static vs Instance Variables
 
