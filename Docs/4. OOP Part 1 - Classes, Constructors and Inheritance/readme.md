@@ -680,6 +680,9 @@ Animal.move() is called. Animal is moving at 10
 ![img](./img/39.png)
 ![img](./img/40.png)
 ![img](./img/41.png)
+
+̥## Static vs Instance Variables
+
 ![img](./img/42.png)
 ![img](./img/43.png)
 ![img](./img/44.png)
@@ -688,8 +691,6 @@ Animal.move() is called. Animal is moving at 10
 ![img](./img/47.png)
 ![img](./img/48.png)
 ![img](./img/49.png)
-
-## Static vs Instance Variables
 
 ## Inheritance Challenge Part 1 (+Challenge Exercise)
 
