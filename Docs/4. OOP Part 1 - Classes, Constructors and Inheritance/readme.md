@@ -692,7 +692,108 @@ Animal.move() is called. Animal is moving at 10
 
 ## Inheritance Challenge Part 1 (+Challenge Exercise)
 
+### Challenge
+
+#### Question
+
 ![img](./img/48.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Vehicle {
+
+    private String name;
+    private String size;
+    private int currentSpeed;
+    private int currentDirection;
+
+    public Vehicle(String name, String size) {
+        this.name = name;
+        this.size = size;
+        this.currentSpeed = 0;
+        this.currentDirection = 0;
+    }
+
+
+    public void steering(int direction) {
+        this.currentDirection += direction;
+        System.out.println("Vehicle.steer(): Steering at " + this.currentDirection + " degrees");
+    }
+
+
+    public void move(int velocity, int direction) {
+        this.currentDirection = direction;
+        this.currentSpeed = velocity;
+        System.out.println("Vehicle.move() vehicle is moving at " + this.currentSpeed + " in direction " + this.currentDirection);
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public int getCurrentSpeed() {
+        return currentSpeed;
+    }
+
+    public int getCurrentDirection() {
+        return currentDirection;
+    }
+
+    public void stop() {
+        this.currentSpeed = 0;
+    }
+}
+
+public class Car extends Vehicle {
+    private int wheels;
+    private int doors;
+    private int gears;
+    private boolean isManual;
+    private int currentGear;
+
+    public Car(String name, String size, int wheels, int doors, int gears, boolean isManual) {
+        super(name, size);
+        this.wheels = wheels;
+        this.doors = doors;
+        this.gears = gears;
+        this.isManual = isManual;
+        this.currentGear = 1;
+    }
+
+    public void changeGear(int currentGear) {
+        this.currentGear = currentGear;
+        System.out.println("Car.setCurrentGear(): changed to " + this.currentGear + " gear.");
+    }
+
+    public void changeVelocity(int speed, int direction) {
+        move(speed, direction);
+        System.out.println("Car.changeVelocity() : velocity " + speed + " direction " + direction);
+    }
+}
+
+
+public class Outlander extends Car {
+    private int roadServiceMonths;
+
+    public Outlander(int roadServiceMonths) {
+        super("outlander", "4WD", 5, 5, 6, false);
+        this.roadServiceMonths = roadServiceMonths;
+    }
+}
+
+
+```
+
+## Inheritance Challenge Part 2̥
+
 ![img](./img/49.png)
 ![img](./img/50.png)
 ![img](./img/51.png)
@@ -713,5 +814,3 @@ Animal.move() is called. Animal is moving at 10
 ![img](./img/68.png)
 ![img](./img/69.png)
 ![img](./img/70.png)
-
-## Inheritance Challenge Part 2
