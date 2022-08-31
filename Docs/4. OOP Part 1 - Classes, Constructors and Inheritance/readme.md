@@ -794,23 +794,144 @@ public class Outlander extends Car {
 
 ## Inheritance Challenge Part 2̥
 
-![img](./img/49.png)
-![img](./img/50.png)
-![img](./img/51.png)
-![img](./img/52.png)
-![img](./img/53.png)
-![img](./img/54.png)
-![img](./img/56.png)
-![img](./img/57.png)
-![img](./img/58.png)
-![img](./img/59.png)
-![img](./img/60.png)
-![img](./img/61.png)
-![img](./img/62.png)
-![img](./img/63.png)
-![img](./img/64.png)
-![img](./img/66.png)
-![img](./img/67.png)
-![img](./img/68.png)
-![img](./img/69.png)
-![img](./img/70.png)
+### Code Example
+
+#### code
+
+```java
+public class Vehicle {
+
+    private String name;
+    private String size;
+    private int currentSpeed;
+    private int currentDirection;
+
+    public Vehicle(String name, String size) {
+        this.name = name;
+        this.size = size;
+        this.currentSpeed = 0;
+        this.currentDirection = 0;
+    }
+
+
+    public void steering(int direction) {
+        this.currentDirection += direction;
+        System.out.println("Vehicle.steer(): Steering at " + this.currentDirection + " degrees");
+    }
+
+
+    public void move(int velocity, int direction) {
+        this.currentDirection = direction;
+        this.currentSpeed = velocity;
+        System.out.println("Vehicle.move() vehicle is moving at " + this.currentSpeed + " in direction " + this.currentDirection);
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public int getCurrentSpeed() {
+        return currentSpeed;
+    }
+
+    public int getCurrentDirection() {
+        return currentDirection;
+    }
+
+    public void stop() {
+        this.currentSpeed = 0;
+    }
+}
+
+    public class Car extends Vehicle {
+        private int wheels;
+        private int doors;
+        private int gears;
+        private boolean isManual;
+        private int currentGear;
+
+        public Car(String name, String size, int wheels, int doors, int gears, boolean isManual) {
+            super(name, size);
+            this.wheels = wheels;
+            this.doors = doors;
+            this.gears = gears;
+            this.isManual = isManual;
+            this.currentGear = 1;
+        }
+
+        public void changeGear(int currentGear) {
+            this.currentGear = currentGear;
+            System.out.println("Car.setCurrentGear(): changed to " + this.currentGear + " gear.");
+        }
+
+        public void changeVelocity(int speed, int direction) {
+            System.out.println("Car.changeVelocity() : velocity " + speed + " direction " + direction);
+            move(speed, direction);
+        }
+    }
+
+public class Outlander extends Car {
+    private int roadServiceMonths;
+
+    public Outlander(int roadServiceMonths) {
+        super("outlander", "4WD", 5, 5, 6, false);
+        this.roadServiceMonths = roadServiceMonths;
+    }
+
+    public void accelerate(int rate) {
+        int newVelocity = getCurrentSpeed() + rate;
+        if (newVelocity == 0) {
+            stop();
+            changeGear(1);
+        } else if (newVelocity > 0 && newVelocity <= 10) {
+            changeGear(1);
+        } else if (newVelocity > 10 && newVelocity <= 20) {
+            changeGear(2);
+        } else if (newVelocity > 20 && newVelocity <= 30) {
+            changeGear(3);
+        } else {
+            changeGear(4);
+        }
+
+        if(newVelocity>0){
+            changeVelocity(newVelocity,getCurrentDirection());
+        }
+    }
+
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+    Outlander outlander = new Outlander(36);
+    outlander.steering(45);
+    outlander.accelerate(30);
+    outlander.accelerate(20);
+    outlander.accelerate(-42);
+    }
+}
+
+
+```
+
+#### output
+
+```shell
+
+Vehicle.steer(): Steering at 45 degrees
+Car.setCurrentGear(): changed to 3 gear.
+Car.changeVelocity() : velocity 30 direction 45
+Vehicle.move() vehicle is moving at 30 in direction 45
+Car.setCurrentGear(): changed to 4 gear.
+Car.changeVelocity() : velocity 50 direction 45
+Vehicle.move() vehicle is moving at 50 in direction 45
+Car.setCurrentGear(): changed to 1 gear.
+Car.changeVelocity() : velocity 8 direction 45
+Vehicle.move() vehicle is moving at 8 in direction 45
+
+```
