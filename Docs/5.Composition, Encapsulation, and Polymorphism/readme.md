@@ -175,13 +175,179 @@ public class Main {
 
 ```
 
-#### output
+## Composition Part 2 (+Challenge Exercise)
 
-```shell
+### Code Example
+
+#### code
+
+```java
+public class PC {
+    private Case theCase;
+    private Monitor monitor;
+    private MotherBoard motherBoard;
+
+    public PC(Case theCase, Monitor monitor, MotherBoard motherBoard) {
+        this.theCase = theCase;
+        this.monitor = monitor;
+        this.motherBoard = motherBoard;
+    }
+
+    public void drawLogo(){
+//        fancy graphics
+        monitor.drawingPixels(12,23,"red");
+    }
+    public void powerUp(){
+        theCase.pressPowerButton();
+        drawLogo();
+    }
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dimensions dimensions = new Dimensions(23,18,3);
+        Case theCase = new Case("23b","Dell",dimensions);
+        Resolution nativeResolution = new Resolution(1920,1080);
+        Monitor monitor = new Monitor("abc","Dell",12,nativeResolution);
+        MotherBoard motherBoard = new MotherBoard("sdsd","Dell",4,"sdjfsjdfg");
+
+        PC pc = new PC(theCase,monitor,motherBoard);
+
+        pc.powerUp();
+
+    }
+}
 
 ```
 
-## Composition Part 2 (+Challenge Exercise)
+#### output
+
+```shell
+Power button is pressed
+Drawing pixels at x: 12 y:  with color red
+
+```
+
+### Challenge
+
+#### Question
+
+![img](./img/1.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Wall {
+    private String color;
+
+    public Wall(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+}
+
+public class Windows {
+    private int width;
+    private int height;
+
+    public Windows(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void open(){
+        System.out.println("window is opening");
+    }
+
+}
+
+public class Couch {
+    private String model;
+
+    public Couch(String model) {
+        this.model = model;
+    }
+
+    public String getModel() {
+        return model;
+    }
+}
+
+public class Tv {
+    private String model;
+
+    public Tv(String model) {
+        this.model = model;
+    }
+
+    public String getModel() {
+        return model;
+    }
+}
+
+import java.awt.*;
+
+public class Room {
+    private Wall wall1;
+    private Wall wall2;
+    private Wall wall3;
+    private Wall wall4;
+    private Windows window;
+    private Couch couch;
+    private Tv tv;
+
+    public Room(Wall wall1, Wall wall2, Wall wall3, Wall wall4, Windows window, Couch couch, Tv tv) {
+        this.wall1 = wall1;
+        this.wall2 = wall2;
+        this.wall3 = wall3;
+        this.wall4 = wall4;
+        this.window = window;
+        this.couch = couch;
+        this.tv = tv;
+    }
+
+    public void OpenWindow(){
+        window.open();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Wall wall1 = new Wall("red");
+        Wall wall2 = new Wall("red");
+        Wall wall3 = new Wall("red");
+        Wall wall4 = new Wall("red");
+        Windows windows = new Windows(12,12);
+        Couch couch = new Couch("sdfsdf");
+        Tv tv = new Tv("sdfsdlhf");
+
+        Room room = new Room(wall1,wall2,wall3,wall4,windows,couch,tv);
+
+        room.OpenWindow();
+    }
+}
+
+```
+
+###### output
+
+```shell
+🔥 -> window is opening
+```
 
 ## Encapsulation
 
