@@ -351,6 +351,84 @@ public class Main {
 
 ## Encapsulation
 
+### Code Example
+
+#### code
+
+```java
+public class Player {
+    public String name;
+    public int health;
+    public String weapon;
+
+    public void loseHealth(int damage) {
+        this.health -= damage;
+        if (this.health <= 0) {
+            System.out.println("Player knocked out");
+//            reduce the player life by one
+        }
+    }
+
+    public int healthRemaining() {
+        return this.health;
+    }
+}
+
+public class EnhancedPlayer {
+    private String name;
+    private int health = 100;
+    private String weapon;
+
+    public EnhancedPlayer(String name, int health, String weapon) {
+        this.name = name;
+        if (health > 0 && health <= 100) {
+            this.health = health;
+        }
+        this.weapon = weapon;
+    }
+
+    public void loseHealth(int damage) {
+        this.health -= damage;
+        if (this.health <= 0) {
+            System.out.println("Player knocked out");
+//            reduce the player life by one
+        }
+    }
+
+    public int getHealth() {
+        return health;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+//        Player player = new Player();
+//        player.name = "Tim";
+//        player.health = 20;
+//        player.weapon = "Sword";
+//
+//        int damage = 10;
+//        player.loseHealth(damage);
+//        System.out.println("Health Remaining " + player.healthRemaining());
+//
+//        damage = 11;
+//        player.health = 189;
+//        player.loseHealth(damage);
+//        System.out.println("Health Remaining " + player.healthRemaining());
+
+        EnhancedPlayer player = new EnhancedPlayer("kevin", 200, "sword");
+        System.out.println("health is : " + player.getHealth());
+
+    }
+}
+```
+
+#### output
+
+```shell
+health is : 100
+```
+
 ## Encapsulation (+Challenge Exercise)
 
 ## Polymorphism
