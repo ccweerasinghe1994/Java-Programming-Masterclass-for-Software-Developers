@@ -431,6 +431,85 @@ health is : 100
 
 ## Encapsulation (+Challenge Exercise)
 
+### Challenge
+
+#### Question
+
+![](../img/75.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Printer {
+    private double tonerLevel = 100;
+    private int numberOfPagesPrinted = 0;
+    private boolean isDuplex = false;
+
+    public Printer(boolean isDuplex) {
+        this.isDuplex = isDuplex;
+    }
+
+    public void printPage(int noOfPages) {
+
+        if (this.tonerLevel - (noOfPages / 10) <= 0) {
+            System.out.println("Sorry Cannot print this many pages");
+        } else {
+            this.tonerLevel -= noOfPages / 10 + noOfPages % 2;
+            if (isDuplex) {
+                System.out.println("this printer is a duplex printer");
+                this.numberOfPagesPrinted += noOfPages / 2 + noOfPages % 2;
+            } else {
+                this.numberOfPagesPrinted += noOfPages;
+            }
+        }
+    }
+
+    public void fillTheToner(int amount) {
+        if (this.tonerLevel + amount > 100) {
+            this.tonerLevel = 100;
+        } else {
+            this.tonerLevel += amount;
+        }
+    }
+
+    public double getTonerLevel() {
+        return tonerLevel;
+    }
+
+    public int getNumberOfPagesPrinted() {
+        return numberOfPagesPrinted;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Printer printer = new Printer(true);
+        printer.printPage(200);
+        System.out.println("Toner Level :"+printer.getTonerLevel());
+        System.out.println("Pages Printed :"+printer.getNumberOfPagesPrinted());
+        printer.printPage(100);
+        System.out.println("Toner Level :"+printer.getTonerLevel());
+        System.out.println("Pages Printed :"+printer.getNumberOfPagesPrinted());
+    }
+}
+
+```
+
+###### output
+
+```shell
+this printer is a duplex printer
+Toner Level :80.0
+Pages Printed :100
+this printer is a duplex printer
+Toner Level :70.0
+Pages Printed :150
+```
+
+`
+
 ## Polymorphism
 
 ## Polymorphism (+Challenge Exercise)
