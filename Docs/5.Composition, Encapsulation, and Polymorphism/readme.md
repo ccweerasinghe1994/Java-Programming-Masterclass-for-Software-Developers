@@ -692,6 +692,109 @@ Plot : A shark eats humans
 
 ## Polymorphism (+Challenge Exercise)
 
+### Challenge
+
+#### Question
+
+![img](../img/77.png)
+
+#### Answer
+
+##### Code
+
+```java
+package chamara.java;
+
+public class Car {
+    private int wheels;
+    private int cylinders;
+    private boolean engine;
+
+    private String name;
+
+    public Car(int cylinders, String name) {
+        this.wheels = 4;
+        this.cylinders = cylinders;
+        this.engine = true;
+        this.name = name;
+    }
+
+    public int getCylinders() {
+        return cylinders;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void startEngine(){
+        System.out.println("Car() -> vehicle is starting");
+    }
+
+    public void accelerating(){
+        System.out.println("Car() -> accelerating");
+    }
+
+    public void braking(){
+        System.out.println("Car() -> braking");
+    }
+}
+
+package chamara.java;
+
+class Civic extends Car{
+    public Civic() {
+        super(10, "civic");
+    }
+    @Override
+    public void startEngine() {
+        System.out.println("civic is starting");
+    }
+
+    @Override
+    public void accelerating() {
+        System.out.println("civic is accelerating");
+    }
+
+    @Override
+    public void braking() {
+        System.out.println("civic is braking");
+    }
+}
+
+package chamara.java;
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car(12,"car");
+        System.out.println(car.getName());
+        System.out.println(car.getCylinders());
+
+        car.startEngine();
+        car.accelerating();
+        car.braking();
+
+        Civic civic = new Civic();
+        civic.startEngine();
+        civic.accelerating();
+        civic.braking();
+    }
+}
+```
+
+###### output
+
+```shell
+car
+12
+Car() -> vehicle is starting
+Car() -> accelerating
+Car() -> braking
+civic is starting
+civic is accelerating
+civic is braking
+```
+
 ## OOP Master Challenge Exercise
 
 ## OOP Challenge - Solution
