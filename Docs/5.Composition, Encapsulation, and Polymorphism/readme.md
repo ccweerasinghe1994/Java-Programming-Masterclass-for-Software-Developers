@@ -797,4 +797,218 @@ civic is braking
 
 ## OOP Master Challenge Exercise
 
-## OOP Challenge - Solution
+### Challenge
+
+#### Question
+
+![img](../img/78.png)
+
+#### Answer
+
+##### Code
+
+```java
+public class Hamburger {
+    private String name;
+    private String breadRole;
+    private String meat;
+    private double price;
+
+    private String option1;
+    private double option1Price;
+    private String option2;
+    private double option2Price;
+    private String option3;
+    private double option3Price;
+    private String option4;
+    private double option4Price;
+
+    public Hamburger(String name, String breadRole, String meat, double price) {
+        this.name = name;
+        this.breadRole = breadRole;
+        this.meat = meat;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBreadRole() {
+        return breadRole;
+    }
+
+    public String getMeat() {
+        return meat;
+    }
+
+    public double getTotalBill() {
+        double hamburgerPrice = this.price;
+        System.out.println("Your " + this.name + " burger with " + this.meat + ", " + this.breadRole + " is " + this.price);
+        if (this.option1 != null) {
+            System.out.println("extra " + this.option1 + " is added for " + this.option1Price);
+            hamburgerPrice += this.option1Price;
+        }
+        if (this.option2 != null) {
+            System.out.println("extra " + this.option2 + " is added for " + this.option2Price);
+            hamburgerPrice += this.option2Price;
+        }
+        if (this.option3 != null) {
+            System.out.println("extra " + this.option3 + " is added for " + this.option3Price);
+            hamburgerPrice += this.option3Price;
+        }
+        if (this.option4 != null) {
+            System.out.println("extra " + this.option4 + " is added for " + this.option4Price);
+            hamburgerPrice += this.option4Price;
+        }
+        return hamburgerPrice;
+    }
+
+    public void addOption1(String option, double price) {
+        this.option1 = option;
+        this.option1Price = price;
+    }
+
+    public void addOption2(String option, double price) {
+        this.option2 = option;
+        this.option2Price = price;
+    }
+
+    public void addOption3(String option, double price) {
+        this.option3 = option;
+        this.option3Price = price;
+    }
+
+    public void addOption4(String option, double price) {
+        this.option4 = option;
+        this.option4Price = price;
+    }
+
+}
+
+
+public class HealthyBurger extends Hamburger {
+    private String healthyOption1;
+    private double healthyOption1Price;
+    private String healthyOption2;
+    private double healthyOption2Price;
+
+    public HealthyBurger(String meat, double price) {
+        super("healthy", "rye", meat, price);
+    }
+
+    public void addHealthyOption1(String option, double price) {
+        this.healthyOption1 = option;
+        this.healthyOption1Price = price;
+    }
+
+    public void addHealthyOption2(String option, double price) {
+        this.healthyOption2 = option;
+        this.healthyOption2Price = price;
+    }
+
+    @Override
+    public double getTotalBill() {
+        double price = super.getTotalBill();
+        if (this.healthyOption1 != null) {
+            System.out.println("extra " + this.healthyOption1 + " is added for " + this.healthyOption1Price);
+            price += this.healthyOption1Price;
+        }
+        if (this.healthyOption2 != null) {
+            System.out.println("extra " + this.healthyOption2 + " is added for " + this.healthyOption2Price);
+            price += this.healthyOption2Price;
+        }
+        return price;
+    }
+}
+
+
+public class DeluxeBurger extends Hamburger {
+    public DeluxeBurger(String meat, double price) {
+        super("deluxe", "white", meat, price);
+        super.addOption1("chips", 2);
+        super.addOption2("drink", 4);
+    }
+
+    @Override
+    public void addOption1(String option, double price) {
+        System.out.println("cannot add extras");
+    }
+
+    @Override
+    public void addOption2(String option, double price) {
+        System.out.println("cannot add extras");
+    }
+
+    @Override
+    public void addOption3(String option, double price) {
+        System.out.println("cannot add extras");
+    }
+
+    @Override
+    public void addOption4(String option, double price) {
+        System.out.println("cannot add extras");
+    }
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Hamburger hamburger = new Hamburger("normal", "white", "sousage", 3.23);
+        hamburger.addOption1("Tomato", 0.21);
+        hamburger.addOption2("lettuce", 0.21);
+        hamburger.addOption3("carrot", 0.21);
+        hamburger.addOption4("onion", 0.21);
+        double price = hamburger.getTotalBill();
+        System.out.println("Total Price for the burger " + price);
+
+
+        HealthyBurger healthyBurger = new HealthyBurger("sousage", 3.23);
+        healthyBurger.addOption1("Tomato", 0.21);
+        healthyBurger.addOption2("lettuce", 0.21);
+        healthyBurger.addOption3("carrot", 0.21);
+        healthyBurger.addOption4("onion", 0.21);
+        healthyBurger.addHealthyOption1("bisil", 12.1);
+        healthyBurger.addHealthyOption2("olive", 12.1);
+
+        double Newprice = healthyBurger.getTotalBill();
+        System.out.println("Total Price for the burger " + Newprice);
+
+        DeluxeBurger deluxeBurger = new DeluxeBurger("pork", 12);
+        deluxeBurger.addOption1("Tomato", 0.21);
+        deluxeBurger.addOption2("lettuce", 0.21);
+        deluxeBurger.addOption3("carrot", 0.21);
+        deluxeBurger.addOption4("onion", 0.21);
+        double deluxeBurgerTotalBill = deluxeBurger.getTotalBill();
+        System.out.println("Total Price for the burger " + deluxeBurgerTotalBill);
+    }
+}
+
+```
+
+###### output
+
+```shell
+Your normal burger with sousage, white is 3.23
+extra Tomato is added for 0.21
+extra lettuce is added for 0.21
+extra carrot is added for 0.21
+extra onion is added for 0.21
+Total Price for the burger 4.07
+Your healthy burger with sousage, rye is 3.23
+extra Tomato is added for 0.21
+extra lettuce is added for 0.21
+extra carrot is added for 0.21
+extra onion is added for 0.21
+extra bisil is added for 12.1
+extra olive is added for 12.1
+Total Price for the burger 28.270000000000003
+cannot add extras
+cannot add extras
+cannot add extras
+cannot add extras
+Your deluxe burger with pork, white is 12.0
+extra chips is added for 2.0
+extra drink is added for 4.0
+Total Price for the burger 18.0
+```
