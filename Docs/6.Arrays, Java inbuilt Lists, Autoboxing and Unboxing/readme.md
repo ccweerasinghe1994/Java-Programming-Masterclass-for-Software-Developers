@@ -120,6 +120,7 @@ Iteration 2, value 12
 Iteration 3, value 12
 Iteration 4, value 12
 average is 12.0
+
 ```
 
 ## 2. Arrays (Challenge Exercise)
