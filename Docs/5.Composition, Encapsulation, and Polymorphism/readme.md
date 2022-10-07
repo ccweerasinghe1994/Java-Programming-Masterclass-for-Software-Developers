@@ -42,7 +42,7 @@
 
 ## Composition
 
-we use composition when we have to have the has a relation ship.
+we use composition when we have to have the has a relationship.
 
 ### Code Example
 
