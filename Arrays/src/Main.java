@@ -1,33 +1,35 @@
+import java.util.Scanner;
+
 public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        int[] myIntValues = getIntegerValues(5);
+        printArray(myIntValues);
+        System.out.println("average is " + getAverage(myIntValues));
 
-        int[] myVariable;
-        myVariable = new int[5];
-        myVariable[2] = 12;
+    }
 
-        double[] myDoubleArray = new double[3];
-
-        int[] myIntArray = {1, 2, 3, 5};
-
-        System.out.println(myIntArray[0]);
-        System.out.println(myIntArray[1]);
-        System.out.println(myIntArray[2]);
-        System.out.println(myIntArray[3]);
-
-        int[] myIntArray2 = new int[10];
-
-        for (int i = 0; i < myIntArray2.length; i++) {
-            myIntArray2[i] = i * 10;
+    private static int[] getIntegerValues(int i) {
+        int[] value = new int[i];
+        System.out.println("please enter " + i + " values\r");
+        for (int j = 0; j < i; j++) {
+            value[j] = scanner.nextInt();
         }
-
-        printArray(myIntArray2);
-
+        return value;
     }
 
     public static void printArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.println("Iteration " + i + ", value " + array[i]);
         }
+    }
+
+    public static double getAverage(int[] numbers) {
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        return (double) sum / (double) numbers.length;
     }
 }
