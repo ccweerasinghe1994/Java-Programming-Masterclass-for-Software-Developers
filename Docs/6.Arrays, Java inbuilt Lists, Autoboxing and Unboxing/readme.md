@@ -281,6 +281,81 @@ Element index 3, value = 1
 
 ## 5. References Types vs Value Types
 
+### Code Example
+
+#### code
+
+```java
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("------------------- value types---------------------------");
+        int myInt = 12;
+        int anotherInt = myInt;
+
+        System.out.println("my int value : " + myInt);
+        System.out.println("another int value : " + anotherInt);
+
+        anotherInt = 1;
+
+        System.out.println("my int value : " + myInt);
+        System.out.println("another int value : " + anotherInt);
+
+        System.out.println("------------------- reference types---------------------------");
+
+        int[] myIntArray = new int[5];
+        int[] anotherArray = myIntArray;
+
+        System.out.println("myIntArray -> " + Arrays.toString(myIntArray));
+        System.out.println("anotherArray -> " + Arrays.toString(anotherArray));
+
+        System.out.println("-------------------after change reference types---------------------------");
+        modifyArray(anotherArray);
+        System.out.println("myIntArray -> " + Arrays.toString(myIntArray));
+        System.out.println("anotherArray -> " + Arrays.toString(anotherArray));
+
+        System.out.println("-------------------after de referencing reference types---------------------------");
+
+        anotherArray = new int[]{23,1};
+        System.out.println("myIntArray -> " + Arrays.toString(myIntArray));
+        System.out.println("anotherArray -> " + Arrays.toString(anotherArray));
+    }
+
+    public static void modifyArray(int[] array) {
+        array[0] = 10;
+
+        array = new int[]{1,1,1,1,1,1,1,1,1};
+    }
+}
+
+```
+
+#### output
+
+```shell
+my int value : 12
+another int value : 12
+my int value : 12
+another int value : 1
+------------------- reference types---------------------------
+myIntArray -> [0, 0, 0, 0, 0]
+anotherArray -> [0, 0, 0, 0, 0]
+-------------------after change reference types---------------------------
+myIntArray -> [10, 0, 0, 0, 0]
+anotherArray -> [10, 0, 0, 0, 0]
+-------------------after de referencing reference types---------------------------
+myIntArray -> [10, 0, 0, 0, 0]
+anotherArray -> [23, 1]
+```
+
+![img](../img/88.png)
+![img](../img/89.png)
+![img](../img/90.png)
+![img](../img/91.png)
+![img](../img/92.png)
+
 ## 6. Minimum Element Challenge
 
 ## 7. Reverse Array Challenge
