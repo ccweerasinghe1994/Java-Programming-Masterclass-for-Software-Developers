@@ -126,6 +126,148 @@ average is 12.0
 
 ## 2. Arrays (Challenge Exercise)
 
+### Challenge
+
+My Answer
+
+#### Question
+
+![img](../img/79.png)
+
+#### Answer
+
+##### Code
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        System.out.println("please enter values to sort\r");
+        printArray(sortArray(getArrayFromUser(4)));
+    }
+
+    public static int[] getArrayFromUser(int value) {
+        int[] array = new int[value];
+        for (int i = 0; i < value; i++) {
+            array[i] = scanner.nextInt();
+        }
+        return array;
+    }
+
+    public static int[] sortArray(int[] array) {
+
+        for (int i = 0; i < array.length; i++) {
+            int max = array[i];
+            for (int j = i + 1; j < array.length; j++) {
+                if (max < array[j]) {
+                    int temp = array[j];
+                    array[j] = max;
+                    array[i] = temp;
+                }
+            }
+        }
+        return array;
+    }
+
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Element index " + i + ", value = " + array[i]);
+        }
+    }
+}
+```
+
+###### output
+
+```shell
+34
+2
+5
+1
+Element index 0, value = 34
+Element index 1, value = 5
+Element index 2, value = 2
+Element index 3, value = 1
+```
+
+---
+
+### Challenge
+
+second answer
+
+#### Answer
+
+##### Code
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+
+        printArray(sortArray(getArrayFromUser(4)));
+    }
+
+    public static int[] getArrayFromUser(int value) {
+        System.out.println("please enter values to sort\r");
+        int[] array = new int[value];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = scanner.nextInt();
+        }
+        return array;
+    }
+
+    public static int[] sortArray(int[] array) {
+        int[] sortedArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            sortedArray[i] = array[i];
+        }
+        boolean flag = true;
+        int temp;
+        while (flag) {
+            flag = false;
+            for (int i = 0; i < sortedArray.length - 1; i++) {
+                if (sortedArray[i] < sortedArray[i + 1]) {
+                    temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[i + 1];
+                    sortedArray[i + 1] = temp;
+                    flag = true;
+                }
+            }
+        }
+        return sortedArray;
+    }
+
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Element index " + i + ", value = " + array[i]);
+        }
+    }
+}
+```
+
+###### output
+
+```shell
+please enter values to sort
+33
+4
+167
+1
+Element index 0, value = 167
+Element index 1, value = 33
+Element index 2, value = 4
+Element index 3, value = 1
+```
+
 ## 4. Arrays Recap
 
 ## 5. References Types vs Value Types
