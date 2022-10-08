@@ -270,6 +270,15 @@ Element index 3, value = 1
 
 ## 4. Arrays Recap
 
+![img](../img/80.png)
+![img](../img/81.png)
+![img](../img/82.png)
+![img](../img/83.png)
+![img](../img/84.png)
+![img](../img/85.png)
+![img](../img/86.png)
+![img](../img/87.png)
+
 ## 5. References Types vs Value Types
 
 ## 6. Minimum Element Challenge
