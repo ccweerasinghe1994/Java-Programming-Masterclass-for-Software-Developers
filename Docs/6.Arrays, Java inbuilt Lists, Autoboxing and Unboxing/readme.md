@@ -355,8 +355,80 @@ anotherArray -> [23, 1]
 ![img](../img/90.png)
 ![img](../img/91.png)
 ![img](../img/92.png)
+![img](../img/93.png)
 
 ## 6. Minimum Element Challenge
+
+### Challenge
+
+#### Question
+
+![img](../img/95.png)
+![img](../img/94.png)
+
+#### Answer
+
+##### Code
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        System.out.println("enter a count: ");
+        int count = scanner.nextInt();
+        scanner.nextLine();
+
+        int[] arrayToFindTheMin = readIntegers(count);
+
+        System.out.println("minimum value : " + findMin(arrayToFindTheMin));
+
+    }
+
+    public static int[] readIntegers(int count) {
+        int[] array = new int[count];
+        System.out.println("Enter " + count + " numbers\r");
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Enter numbers " + (i + 1) + "\r");
+            int number = scanner.nextInt();
+            scanner.nextLine();
+            array[i] = number;
+        }
+        return array;
+    }
+
+    public static int findMin(int[] array) {
+        int min = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (min > array[i]) {
+                min = array[i];
+            }
+        }
+        return min;
+    }
+}
+```
+
+###### output
+
+```shell
+enter a count: 
+5
+Enter 5 numbers
+Enter numbers 1
+2
+Enter numbers 2
+543
+Enter numbers 3
+8
+Enter numbers 4
+1
+Enter numbers 5
+55
+minimum value : 1
+```
 
 ## 7. Reverse Array Challenge
 
