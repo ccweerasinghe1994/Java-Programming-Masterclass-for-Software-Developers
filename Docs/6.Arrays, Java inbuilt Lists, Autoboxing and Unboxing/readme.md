@@ -434,6 +434,71 @@ minimum value : 1
 
 ## 8. List and ArrayList Part 1
 
+how to resize and Array.
+
+### Code Example
+
+#### code
+
+```java
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+    private static int[] baseDate = new int[10];
+
+    public static void main(String[] args) {
+        System.out.println("Enter 10 digits : \r");
+        getInput();
+        System.out.println(Arrays.toString(baseDate));
+        resizeTheArray();
+        baseDate[10] = 12;
+        baseDate[11] = 23;
+        System.out.println(Arrays.toString(baseDate));
+    }
+
+    public static void getInput() {
+        for (int i = 0; i < baseDate.length; i++) {
+            baseDate[i] = scanner.nextInt();
+            scanner.nextLine();
+        }
+    }
+
+    public static void resizeTheArray(){
+        int[] oldArray = baseDate;
+
+        baseDate = new int[12];
+
+        for (int i = 0; i < oldArray.length; i++) {
+            baseDate[i] = oldArray[i];
+        }
+    }
+}
+
+```
+
+#### output
+
+```shell
+Enter 10 digits : 
+234
+234
+1234
+234
+123
+123
+123
+123
+12
+3123
+[234, 234, 1234, 234, 123, 123, 123, 123, 12, 3123]
+[234, 234, 1234, 234, 123, 123, 123, 123, 12, 3123, 12, 23]
+```
+
+this can become not so easy as our code becomes more expansive.
+
+
 ## 9. ArrayList Part 2
 
 ## 10. ArrayList Part 3
