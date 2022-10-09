@@ -16,12 +16,21 @@ public class GroceryList {
 
     public void updateGroceryList(int index, String item) {
         groceryList.set(index, item);
-        System.out.println("Grocery list item " + index + "has been updated");
+        System.out.println("Grocery list item " + index + 1 + " has been updated");
     }
 
     public void removeItemFromGroceryList(int index) {
         String item = groceryList.get(index);
         groceryList.remove(index);
         System.out.println(item + " has been removed from the grocery list");
+    }
+
+    public String findItem(String item) {
+//        boolean exists = groceryList.contains(item);
+        int index = groceryList.indexOf(item);
+        if (index >= 0) {
+            return groceryList.get(index);
+        }
+        return null;
     }
 }
