@@ -3,6 +3,10 @@ import java.util.ArrayList;
 public class GroceryList {
     private final ArrayList<String> groceryList = new ArrayList<String>();
 
+    public ArrayList<String> getGroceryList() {
+        return groceryList;
+    }
+
     public void addGroceryItem(String item) {
         groceryList.add(item);
     }
@@ -14,23 +18,34 @@ public class GroceryList {
         }
     }
 
-    public void updateGroceryList(int index, String item) {
+    public void updateGroceryList(String currentItem, String newItem) {
+        int index = findItem(currentItem);
+        if (index >= 0) {
+            updateGroceryList(index, newItem);
+        }
+    }
+
+    private void updateGroceryList(int index, String item) {
         groceryList.set(index, item);
         System.out.println("Grocery list item " + index + 1 + " has been updated");
     }
 
-    public void removeItemFromGroceryList(int index) {
-        String item = groceryList.get(index);
-        groceryList.remove(index);
+    public void removeItemFromGroceryList(String item) {
+        int index = findItem(item);
+        if (index >= 0) {
+            groceryList.remove(index);
+        }
         System.out.println(item + " has been removed from the grocery list");
     }
 
-    public String findItem(String item) {
+    private int findItem(String item) {
 //        boolean exists = groceryList.contains(item);
-        int index = groceryList.indexOf(item);
-        if (index >= 0) {
-            return groceryList.get(index);
-        }
-        return null;
+        return groceryList.indexOf(item);
+
+    }
+
+    public boolean onFile(String item) {
+        int index = findItem(item);
+        return index >= 0;
     }
 }
