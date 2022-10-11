@@ -73,8 +73,6 @@ public class Main {
         } else {
             System.out.println("Error updating the contact");
         }
-
-
     }
 
     public static void removeContact() {
