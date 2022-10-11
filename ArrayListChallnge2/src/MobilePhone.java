@@ -1,12 +1,19 @@
 import java.util.ArrayList;
 
 public class MobilePhone {
-    private String mobilePhone;
+    private String mobileNumber;
     private ArrayList<Contact> myContacts;
 
     public MobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
+        this.mobileNumber = mobilePhone;
         this.myContacts = new ArrayList<Contact>();
+    }
+
+    public void printContactList() {
+        System.out.println("your contact list has " + myContacts.size() + " items");
+        for (Contact contact : myContacts) {
+            System.out.println(contact.getName() + " : " + contact.getPhoneNumber());
+        }
     }
 
     public boolean addContact(Contact contact) {
@@ -29,6 +36,17 @@ public class MobilePhone {
         return true;
     }
 
+    public boolean removeContact(Contact contact) {
+        int position = findContact(contact);
+        if (position < 0) {
+            System.out.println("this contact was not found");
+            return false;
+        }
+        myContacts.remove(contact);
+        System.out.println("this " + contact.getName() + " is deleted");
+        return true;
+    }
+
     private int findContact(Contact contact) {
         return myContacts.indexOf(contact);
     }
@@ -41,5 +59,12 @@ public class MobilePhone {
             }
         }
         return -1;
+    }
+
+    public String queryContact(Contact contact) {
+        if (findContact(contact) >= 0) {
+            return contact.getName();
+        }
+        return null;
     }
 }
