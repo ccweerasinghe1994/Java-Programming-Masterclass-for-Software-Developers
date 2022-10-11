@@ -1486,11 +1486,357 @@ please enter a option !
 
 ## 15. Autoboxing and Unboxing
 
+```java
+import java.util.ArrayList;
+
+class MyInt {
+    private int myInt;
+
+    public MyInt(int myInt) {
+        this.myInt = myInt;
+    }
+
+    public int getMyInt() {
+        return myInt;
+    }
+
+    public void setMyInt(int myInt) {
+        this.myInt = myInt;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+//        we can create arrays like this.
+        int[] intArray = new int[12];
+        double[] myDoubleArray = new double[12];
+        String[] myStringArray = new String[12];
+
+//        let's create  a ArrayList
+        ArrayList<String> myArrayList = new ArrayList<>();
+//        let's try to create a array list with a primitive type.
+//        ArrayList<int> myIntArrayList = new ArrayList<int>();
+//        so we get an error when we try to do that.
+//        what we can do is to create an int class
+        ArrayList<MyInt> myIntArrayList = new ArrayList<>();
+        myIntArrayList.add(new MyInt(12));
+        myIntArrayList.add(new MyInt(122));
+
+        for (MyInt myInt : myIntArrayList) {
+            System.out.println(myInt.getMyInt());
+        }
+//        we can use Integer class to create a int but this is deprecated.
+        Integer myInt = new Integer(12);
+        Double myDouble = new Double(223.1);
+
+        System.out.println("---------------------------------------------");
+
+//        let's talk about autoboxing and unboxing
+        ArrayList<Integer> myIntegerArrayList = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            myIntegerArrayList.add(Integer.valueOf(i));
+        }
+
+        for (Integer value : myIntegerArrayList) {
+            System.out.println(value.intValue());
+        }
+
+//        but we do not need to use this autoboxing
+
+        int var = 12; //Integer.valueOf(12);
+    }
+}
+```
+
 ## 16. Autoboxing & Unboxing (Challenge Exercise) - Part 1
+
+```java
+import java.util.ArrayList;
+
+public class Customer {
+    private String name;
+    private ArrayList<Double> transactions;
+
+    public Customer(String name, double initialTransaction) {
+        this.name = name;
+        this.transactions = new ArrayList<>();
+        addTransaction(initialTransaction);
+    }
+
+    public void addTransaction(double amount) {
+        this.transactions.add(amount);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<Double> getTransactions() {
+        return transactions;
+    }
+}
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+public class Branch {
+    private String name;
+    private ArrayList<Customer> customers;
+
+    public Branch(String name) {
+        this.name = name;
+        this.customers = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean newCustomer(String customerName, double initialAmount) {
+        if (findCustomer(customerName) == null) {
+            customers.add(new Customer(customerName, initialAmount));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addTransaction(String customerName, double amount) {
+        Customer existingCustomer = findCustomer(customerName);
+        if (existingCustomer != null) {
+            existingCustomer.addTransaction(amount);
+            return true;
+        }
+        return false;
+    }
+
+    private Customer findCustomer(String name) {
+        for (Customer customer : customers) {
+            if (Objects.equals(customer.getName(), name)) {
+                return customer;
+            }
+        }
+        return null;
+    }
+}
+
+
+```
 
 ## 17. Autoboxing & Unboxing (Challenge Exercise) - Part 2
 
+```java
+import java.util.ArrayList;
+import java.util.Objects;
+
+public class Bank {
+    private String name;
+    private ArrayList<Branch> branches;
+
+    public Bank(String name) {
+        this.name = name;
+        this.branches = new ArrayList<>();
+    }
+
+    private Branch findBranch(String branchName) {
+        for (Branch branch : branches) {
+            if (Objects.equals(branch.getName(), branchName)) {
+                return branch;
+            }
+        }
+        return null;
+    }
+
+    public boolean addBranch(String branchName) {
+        if (findBranch(branchName) == null) {
+            this.branches.add(new Branch(branchName));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addCustomer(String branchName, String customerName, double initialDeposit) {
+        Branch existingBranch = findBranch(branchName);
+        if (existingBranch != null) {
+            return existingBranch.newCustomer(customerName, initialDeposit);
+        }
+        return false;
+    }
+
+    public boolean addTransaction(String branchName, String customerName, double deposit) {
+        Branch existingBranch = findBranch(branchName);
+        if (existingBranch != null) {
+            return existingBranch.addTransaction(customerName, deposit);
+        }
+        return false;
+    }
+
+    public boolean listCustomer(String branchName, boolean listTransactions) {
+        Branch existingBranch = findBranch(branchName);
+        if (existingBranch != null) {
+            ArrayList<Customer> customers = existingBranch.getCustomers();
+            System.out.println("<------ Customer List -----> ");
+            customers.forEach(customer -> {
+                System.out.println("Customer Name: " + customer.getName());
+                if (listTransactions) {
+                    System.out.println("<------ transaction List -----> ");
+                    ArrayList<Double> transactions = customer.getTransactions();
+                    transactions.forEach(aTransaction -> {
+                        System.out.println("transaction -> " + aTransaction);
+                    });
+                }
+            });
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+public class Branch {
+    private String name;
+    private ArrayList<Customer> customers;
+
+    public Branch(String name) {
+        this.name = name;
+        this.customers = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
+
+    public boolean newCustomer(String customerName, double initialAmount) {
+        if (findCustomer(customerName) == null) {
+            customers.add(new Customer(customerName, initialAmount));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addTransaction(String customerName, double amount) {
+        Customer existingCustomer = findCustomer(customerName);
+        if (existingCustomer != null) {
+            existingCustomer.addTransaction(amount);
+            return true;
+        }
+        return false;
+    }
+
+    private Customer findCustomer(String name) {
+        for (Customer customer : customers) {
+            if (Objects.equals(customer.getName(), name)) {
+                return customer;
+            }
+        }
+        return null;
+    }
+}
+
+import java.util.ArrayList;
+
+public class Customer {
+    private String name;
+    private ArrayList<Double> transactions;
+
+    public Customer(String name, double initialTransaction) {
+        this.name = name;
+        this.transactions = new ArrayList<>();
+        addTransaction(initialTransaction);
+    }
+
+    public void addTransaction(double amount) {
+        this.transactions.add(amount);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<Double> getTransactions() {
+        return transactions;
+    }
+}
+
+```
+
 ## 18. Autoboxing & Unboxing (Challenge Exercise) - Part 3
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Bank hnbBank = new Bank("HNB BANK");
+
+        hnbBank.addBranch("COLOMBO");
+        hnbBank.addCustomer("COLOMBO", "chamara", 12.34);
+        hnbBank.addCustomer("COLOMBO", "shan", 112.34);
+
+        hnbBank.addBranch("NEGAMBO");
+        hnbBank.addCustomer("NEGAMBO", "gagani", 1232.34);
+        hnbBank.addCustomer("NEGAMBO", "dilshan", 432.34);
+
+        hnbBank.addTransaction("COLOMBO", "chamara", 1200);
+        hnbBank.addTransaction("COLOMBO", "chamara", 1200);
+        hnbBank.addTransaction("COLOMBO", "shan", 1200);
+        hnbBank.addTransaction("NEGAMBO", "dilshan", 1200);
+
+        hnbBank.listCustomer("COLOMBO", true);
+        hnbBank.listCustomer("NEGAMBO", true);
+
+        hnbBank.addBranch("KI");
+
+        if (!hnbBank.addCustomer("KI", "chamara", 1212.234)) {
+            System.out.println("Sorry KI branch doesn't exist");
+        }
+
+        if (!hnbBank.addBranch("KI")) {
+            System.out.println("KI branch already exists");
+        }
+
+        if (!hnbBank.addTransaction("COLOMBO", "achamara", 1200)) {
+            System.out.println("customer doesn't exist");
+        }
+
+        if (!hnbBank.addCustomer("NEGAMBO", "dilshan", 432.34)) {
+            System.out.println("this customer already exists");
+        }
+    }
+}
+```
+
+output  
+
+```bash
+<------ Customer List -----> 
+Customer Name: chamara
+<------ transaction List -----> 
+transaction -> 12.34
+transaction -> 1200.0
+transaction -> 1200.0
+Customer Name: shan
+<------ transaction List -----> 
+transaction -> 112.34
+transaction -> 1200.0
+<------ Customer List -----> 
+Customer Name: gagani
+<------ transaction List -----> 
+transaction -> 1232.34
+Customer Name: dilshan
+<------ transaction List -----> 
+transaction -> 432.34
+transaction -> 1200.0
+KI branch already exists
+customer doesn't exist
+this customer already exists
+```
 
 ## 19. LinkedList Part 1
 
