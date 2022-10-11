@@ -1551,9 +1551,87 @@ public class Main {
 
 ## 16. Autoboxing & Unboxing (Challenge Exercise) - Part 1
 
+```java
+import java.util.ArrayList;
+
+public class Customer {
+    private String name;
+    private ArrayList<Double> transactions;
+
+    public Customer(String name, double initialTransaction) {
+        this.name = name;
+        this.transactions = new ArrayList<>();
+        addTransaction(initialTransaction);
+    }
+
+    public void addTransaction(double amount) {
+        this.transactions.add(amount);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<Double> getTransactions() {
+        return transactions;
+    }
+}
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+public class Branch {
+    private String name;
+    private ArrayList<Customer> customers;
+
+    public Branch(String name) {
+        this.name = name;
+        this.customers = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean newCustomer(String customerName, double initialAmount) {
+        if (findCustomer(customerName) == null) {
+            customers.add(new Customer(customerName, initialAmount));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addTransaction(String customerName, double amount) {
+        Customer existingCustomer = findCustomer(customerName);
+        if (existingCustomer != null) {
+            existingCustomer.addTransaction(amount);
+            return true;
+        }
+        return false;
+    }
+
+    private Customer findCustomer(String name) {
+        for (Customer customer : customers) {
+            if (Objects.equals(customer.getName(), name)) {
+                return customer;
+            }
+        }
+        return null;
+    }
+}
+
+
+```
+
 ## 17. Autoboxing & Unboxing (Challenge Exercise) - Part 2
 
+```java
+```
+
 ## 18. Autoboxing & Unboxing (Challenge Exercise) - Part 3
+
+```java
+```
 
 ## 19. LinkedList Part 1
 
