@@ -11,8 +11,10 @@ public class MobilePhone {
 
     public void printContactList() {
         System.out.println("your contact list has " + myContacts.size() + " items");
+        int index = 1;
         for (Contact contact : myContacts) {
-            System.out.println(contact.getName() + " : " + contact.getPhoneNumber());
+            System.out.println(index + "." + contact.getName() + " -> " + contact.getPhoneNumber());
+            index++;
         }
     }
 
@@ -64,6 +66,14 @@ public class MobilePhone {
     public String queryContact(Contact contact) {
         if (findContact(contact) >= 0) {
             return contact.getName();
+        }
+        return null;
+    }
+
+    public Contact queryContact(String name) {
+        int position = findContact(name);
+        if (position >= 0) {
+            return myContacts.get(position);
         }
         return null;
     }
