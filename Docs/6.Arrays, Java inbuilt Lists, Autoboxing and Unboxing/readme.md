@@ -1393,6 +1393,97 @@ public class Main {
 
 ## 14. Bug Fix for ArrayList Challenge
 
+MobilePhone
+
+```java
+    public static void updateMobileContact() {
+        System.out.println("please enter the contact name you want to update ");
+        String contactName = scanner.nextLine();
+        Contact existingContactRecord = myPhone.queryContact(contactName);
+        if (existingContactRecord == null) {
+            System.out.println("This contact doesn't exists");
+            return;
+        }
+        System.out.println("enter the new contact name");
+        String newContactName = scanner.nextLine();
+        System.out.println("enter the new contact number");
+        String newContactNumber = scanner.nextLine();
+        Contact newContact = Contact.createContact(newContactName, newContactNumber);
+        if (myPhone.updateContact(existingContactRecord, newContact)) {
+            System.out.println("Successfully updated contact");
+        } else {
+            System.out.println("Error updating the contact");
+        }
+    }
+```
+
+```bash
+Press 
+  0 - To Print choice options.
+  1 - To Print list of contacts.
+  2 - To add a contact.
+  3 - To modify a contact.
+  4 - To remove a contact.
+  5 - To search a contact.
+  6 - To exit from the list.
+please enter a option !
+2
+please enter the contact name : 
+a
+Please enter the number
+12
+Contact added successfully
+please enter a option !
+2
+please enter the contact name : 
+b
+Please enter the number
+12
+Contact added successfully
+please enter a option !
+1
+your contact list has 2 items
+1.a -> 12
+2.b -> 12
+please enter a option !
+0
+
+Press 
+  0 - To Print choice options.
+  1 - To Print list of contacts.
+  2 - To add a contact.
+  3 - To modify a contact.
+  4 - To remove a contact.
+  5 - To search a contact.
+  6 - To exit from the list.
+please enter a option !
+3
+please enter the contact name you want to update 
+b
+enter the new contact name
+121212
+enter the new contact number
+a
+b is updated to 121212
+Successfully updated contact
+please enter a option !
+1
+your contact list has 2 items
+1.a -> 12
+2.121212 -> a
+please enter a option !
+3
+please enter the contact name you want to update 
+121212
+enter the new contact name
+a
+enter the new contact number
+12
+This contact name already exists in your contact list. update failed
+Error updating the contact
+please enter a option !
+```
+
 ## 15. Autoboxing and Unboxing
 
 ## 16. Autoboxing & Unboxing (Challenge Exercise) - Part 1
