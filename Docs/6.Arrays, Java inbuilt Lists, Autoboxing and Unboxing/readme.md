@@ -1840,7 +1840,98 @@ this customer already exists
 
 ## 19. LinkedList Part 1
 
+![img](../img/98.png)
+for each int java is allocating 4 bytes.
+![img](../img/99.png)
+
+```java
+public class Customer {
+    private String name;
+    private double balance;
+
+    public Customer(String name, double balance) {
+        this.name = name;
+        this.balance = balance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+}
+
+
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        Customer customer = new Customer("chamara", 12.23);
+        Customer anotherCustomer;
+        anotherCustomer = customer;
+        anotherCustomer.setBalance(45.23);
+
+        System.out.println("customer balance : " + customer.getBalance());
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+        arrayList.add(12);
+        arrayList.add(34);
+        arrayList.add(1);
+        for (int i = 0; i < arrayList.size(); i++) {
+            System.out.println(i + " : " + arrayList.get(i));
+        }
+        System.out.println("-------- ADDING A ELEMENT TO A ARRAY LIST --------");
+        arrayList.add(1, 2);
+        for (int i = 0; i < arrayList.size(); i++) {
+            System.out.println(i + " : " + arrayList.get(i));
+        }
+//         this way is ok for a small array list.
+//        but if we have millions of records this process will be slow.
+    }
+}
+
+
+```
+
+```bash
+0 : 12
+1 : 34
+2 : 1
+-------- ADDING A ELEMENT TO A ARRAY LIST --------
+0 : 12
+1 : 2
+2 : 34
+3 : 1
+```
+
+**linked list examples**
+
+![img](../img/100.png)
+
+![img](../img/101.png)
+
+**adding a item to a linked list**
+
+![img](../img/102.png)
+
+**removing a item to a linked list**
+
+![img](../img/103.png)
+
 ## 20. LinkedList Part 2
+
+![img](../img/104.png)
 
 ## 21. LinkedList Part 3
 
