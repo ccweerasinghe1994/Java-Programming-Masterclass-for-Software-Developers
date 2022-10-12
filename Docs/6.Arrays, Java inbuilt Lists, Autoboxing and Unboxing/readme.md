@@ -1840,9 +1840,307 @@ this customer already exists
 
 ## 19. LinkedList Part 1
 
+![img](../img/98.png)
+for each int java is allocating 4 bytes.
+![img](../img/99.png)
+
+```java
+public class Customer {
+    private String name;
+    private double balance;
+
+    public Customer(String name, double balance) {
+        this.name = name;
+        this.balance = balance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+}
+
+
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        Customer customer = new Customer("chamara", 12.23);
+        Customer anotherCustomer;
+        anotherCustomer = customer;
+        anotherCustomer.setBalance(45.23);
+
+        System.out.println("customer balance : " + customer.getBalance());
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+        arrayList.add(12);
+        arrayList.add(34);
+        arrayList.add(1);
+        for (int i = 0; i < arrayList.size(); i++) {
+            System.out.println(i + " : " + arrayList.get(i));
+        }
+        System.out.println("-------- ADDING A ELEMENT TO A ARRAY LIST --------");
+        arrayList.add(1, 2);
+        for (int i = 0; i < arrayList.size(); i++) {
+            System.out.println(i + " : " + arrayList.get(i));
+        }
+//         this way is ok for a small array list.
+//        but if we have millions of records this process will be slow.
+    }
+}
+
+
+```
+
+```bash
+0 : 12
+1 : 34
+2 : 1
+-------- ADDING A ELEMENT TO A ARRAY LIST --------
+0 : 12
+1 : 2
+2 : 34
+3 : 1
+```
+
+**linked list examples**
+
+![img](../img/100.png)
+
+![img](../img/101.png)
+
+**adding a item to a linked list**
+
+![img](../img/102.png)
+
+**removing a item to a linked list**
+
+![img](../img/103.png)
+
 ## 20. LinkedList Part 2
 
+![img](../img/104.png)
+add a function to order the linked list.
+
+```java
+    public static boolean addInOrder(LinkedList<String> stringLinkedList, String newCity){
+        ListIterator<String> stringListIterator = stringLinkedList.listIterator();
+        while (stringListIterator.hasNext()){
+            int comparison = stringListIterator.next().compareTo(newCity);
+            if(comparison == 0){
+                System.out.println("already in the list");
+                return false;
+            } else if (comparison > 0 ) {
+//                new city should appear before this one
+//                brisbane -> adelaide
+                stringListIterator.previous();
+                stringListIterator.add(newCity);
+                return true;
+            } else if (comparison<0) {
+//                move on next city
+            }
+        }
+        stringListIterator.add(newCity);
+        return true;
+    }
+
+```
+
 ## 21. LinkedList Part 3
+
+```java
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.Scanner;
+
+public class Demo {
+    public static void main(String[] args) {
+        LinkedList<String> placesToVisit = new LinkedList<>();
+        addInOrder(placesToVisit, "colombo");
+        addInOrder(placesToVisit, "nuwaraeliya");
+        addInOrder(placesToVisit, "polonnaruwa");
+        addInOrder(placesToVisit, "damulla");
+        addInOrder(placesToVisit, "anuradhapura");
+        addInOrder(placesToVisit, "negambo");
+        addInOrder(placesToVisit, "kandy");
+        addInOrder(placesToVisit, "badulla");
+        addInOrder(placesToVisit, "kurunagala");
+        addInOrder(placesToVisit, "alla");
+        printPlaces(placesToVisit);
+        addInOrder(placesToVisit, "alla");
+        printPlaces(placesToVisit);
+
+        visit(placesToVisit);
+//        adding and element to the list
+        placesToVisit.add(1, "Gampha");
+        printPlaces(placesToVisit);
+//        removing a element from the list
+        placesToVisit.remove(1);
+        printPlaces(placesToVisit);
+    }
+
+    public static void printPlaces(LinkedList<String> list) {
+//        Iterator<String> iterator = list.iterator();
+//        while (iterator.hasNext()){
+//            System.out.println("now visiting -> "+ iterator.next());
+//        }
+        for (String s : list) {
+            System.out.println("now visiting -> " + s);
+        }
+        System.out.println("------------- END -----------------------");
+    }
+
+    public static boolean addInOrder(LinkedList<String> stringLinkedList, String newCity) {
+        ListIterator<String> stringListIterator = stringLinkedList.listIterator();
+        while (stringListIterator.hasNext()) {
+            int comparison = stringListIterator.next().compareTo(newCity);
+            if (comparison == 0) {
+                System.out.println("already in the list");
+                return false;
+            } else if (comparison > 0) {
+//                new city should appear before this one
+//                brisbane -> adelaide
+                stringListIterator.previous();
+                stringListIterator.add(newCity);
+                return true;
+            } else if (comparison < 0) {
+//                move on next city
+            }
+        }
+        stringListIterator.add(newCity);
+        return true;
+    }
+
+    private static void visit(LinkedList<String> cities) {
+        Scanner scanner = new Scanner(System.in);
+        boolean quit = false;
+        boolean goingForward = true;
+        ListIterator<String> listIterator = cities.listIterator();
+
+        if (cities.isEmpty()) {
+            System.out.println("There are no cities in the list");
+        } else {
+            System.out.println("Now visiting " + listIterator.next());
+            printMenu();
+        }
+
+        while (!quit) {
+            int action = scanner.nextInt();
+            scanner.nextLine();
+            switch (action) {
+                case 0 -> {
+                    System.out.println("Holiday is over");
+                    quit = true;
+                }
+                case 1 -> {
+                    if (!goingForward) {
+                        if (listIterator.hasNext()) {
+                            listIterator.next();
+                        }
+                        ;
+                        goingForward = true;
+                    }
+                    if (listIterator.hasNext()) {
+                        System.out.println("now visiting " + listIterator.next());
+                    } else {
+                        System.out.println("reach the end of the list");
+                        goingForward = false;
+                    }
+                }
+                case 2 -> {
+                    if (goingForward) {
+                        if (listIterator.hasPrevious()) {
+                            listIterator.previous();
+                        }
+                        ;
+                        goingForward = false;
+                    }
+                    if (listIterator.hasPrevious()) {
+                        System.out.println("now visiting " + listIterator.previous());
+                    } else {
+                        System.out.println("we are at the start of the list");
+                        goingForward = true;
+                    }
+                }
+                case 3 -> {
+                    printMenu();
+                }
+            }
+        }
+    }
+
+    public static void printMenu() {
+        System.out.println("Available Actions\npress");
+        System.out.println("""
+                0- to quit
+                1 - to next city
+                2 - to previous city
+                3 - to see the options
+                """);
+    }
+
+}
+
+```
+
+output
+
+```bash
+now visiting -> alla
+now visiting -> anuradhapura
+now visiting -> badulla
+now visiting -> colombo
+now visiting -> damulla
+now visiting -> kandy
+now visiting -> kurunagala
+now visiting -> negambo
+now visiting -> nuwaraeliya
+now visiting -> polonnaruwa
+------------- END -----------------------
+already in the list
+now visiting -> alla
+now visiting -> anuradhapura
+now visiting -> badulla
+now visiting -> colombo
+now visiting -> damulla
+now visiting -> kandy
+now visiting -> kurunagala
+now visiting -> negambo
+now visiting -> nuwaraeliya
+now visiting -> polonnaruwa
+------------- END -----------------------
+Now visiting alla
+Available Actions
+press
+0- to quit
+1 - to next city
+2 - to previous city
+3 - to see the options
+
+1
+now visiting anuradhapura
+1
+now visiting badulla
+1
+now visiting colombo
+2
+now visiting badulla
+2
+now visiting anuradhapura
+```
 
 ## 22. LinkedList Challenge Part 1
 
