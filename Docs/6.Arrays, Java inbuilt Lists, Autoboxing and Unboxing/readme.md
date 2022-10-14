@@ -2144,6 +2144,87 @@ now visiting anuradhapura
 
 ## 22. LinkedList Challenge Part 1
 
+Song class
+
+```java
+public class Song {
+    private String name;
+    private double duration;
+
+    public Song(String name, double duration) {
+        this.name = name;
+        this.duration = duration;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name+" : "+this.duration;
+    }
+}
+```
+
+Album Class
+
+```java
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Objects;
+
+public class Album {
+    private String name;
+    private String artistName;
+    private ArrayList<Song> songs;
+
+    public Album(String name, String artistName) {
+        this.name = name;
+        this.artistName = artistName;
+        this.songs = new ArrayList<>();
+    }
+
+    public boolean addNewSong(String songName, double duration) {
+        if (findSong(songName) == null) {
+            this.songs.add(new Song(songName, duration));
+            return true;
+        }
+        return false;
+    }
+
+    private Song findSong(String songName) {
+        for (Song song : this.songs) {
+            if (Objects.equals(song.getName(), songName)) {
+                return song;
+            }
+        }
+        return null;
+    }
+
+    public boolean addToPlaylist(int trackNumber, LinkedList<Song> playList) {
+        int index = trackNumber - 1;
+        if ((trackNumber >= 0) && (trackNumber <= this.songs.size())) {
+            playList.add(this.songs.get(index));
+            return true;
+        }
+        System.out.println("This album does not have a track");
+        return false;
+    }
+
+    public boolean addToPlaylist(String trackName, LinkedList<Song> playList) {
+        Song song = findSong(trackName);
+        if (song != null) {
+            playList.add(song);
+            return true;
+        }
+        System.out.println("This song " + trackName + "in  not in this album.");
+        return false;
+    }
+}
+
+```
+
 ## 23. Bug Fix for Track 1 Error
 
 ## 24. LinkedList Challenge Part 2
