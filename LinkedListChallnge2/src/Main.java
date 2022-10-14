@@ -60,6 +60,7 @@ public class Main {
             return;
         } else {
             System.out.println("Now Playing " + listIterator.next().toString());
+            printOptions();
         }
 
         while (!quit) {
@@ -98,14 +99,61 @@ public class Main {
                     }
                 }
                 case 3 -> {
+                    if (goingForward) {
+                        if (listIterator.hasPrevious()) {
+                            System.out.println("now replaying " + listIterator.previous().toString());
+                            goingForward = false;
+                        } else {
+                            System.out.println("we are at the beginning of the playlist");
+                        }
+                    } else {
+                        if (listIterator.hasNext()) {
+                            System.out.println("now replaying " + listIterator.next().toString());
+                            goingForward = true;
+                        } else {
+                            System.out.println("we are at the end of the playlist");
+                        }
+                    }
                 }
                 case 4 -> {
+                    printSongsList(linkedList);
                 }
                 case 5 -> {
+                    printOptions();
                 }
                 case 6 -> {
+                    if (linkedList.size() > 0) {
+                        listIterator.remove();
+                        if (listIterator.hasNext()) {
+                            System.out.println("now playing " + listIterator.next().toString());
+                        } else if (listIterator.hasPrevious()) {
+                            System.out.println("Now playing " + listIterator.previous().toString());
+                        }
+                    }
                 }
+
             }
         }
+    }
+
+    public static void printOptions() {
+        System.out.println("""
+                press
+                0 to quit the playlist
+                1 to play the next song
+                2 to play the previous song
+                3 to replay the current song
+                4 to list the songs in the playlist
+                5 to print the instruction
+                6 to remove the current song
+                """);
+    }
+
+    public static void printSongsList(LinkedList<Song> songs) {
+        final int[] index = {1};
+        songs.forEach(song -> {
+            System.out.println(index[0] + "." + song.toString());
+            index[0]++;
+        });
     }
 }

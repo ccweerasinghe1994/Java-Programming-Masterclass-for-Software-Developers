@@ -2388,3 +2388,364 @@ please select a option
 ```
 
 ## 25. LinkedList Challenge Part 3 (Final video)
+
+Song
+
+```java
+public class Song {
+    private String name;
+    private double duration;
+
+    public Song(String name, double duration) {
+        this.name = name;
+        this.duration = duration;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name+" : "+this.duration;
+    }
+}
+
+```
+
+PlayList
+
+```java
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Objects;
+
+public class Album {
+    private String name;
+    private String artistName;
+    private ArrayList<Song> songs;
+
+    public Album(String name, String artistName) {
+        this.name = name;
+        this.artistName = artistName;
+        this.songs = new ArrayList<>();
+    }
+
+    public boolean addNewSong(String songName, double duration) {
+        if (findSong(songName) == null) {
+            this.songs.add(new Song(songName, duration));
+            return true;
+        }
+        return false;
+    }
+
+    private Song findSong(String songName) {
+        for (Song song : this.songs) {
+            if (Objects.equals(song.getName(), songName)) {
+                return song;
+            }
+        }
+        return null;
+    }
+
+    public boolean addToPlaylist(int trackNumber, LinkedList<Song> playList) {
+        int index = trackNumber - 1;
+        if ((trackNumber >= 0) && (trackNumber <= this.songs.size())) {
+            playList.add(this.songs.get(index));
+            return true;
+        }
+        System.out.println("This album does not have a track " + trackNumber);
+        return false;
+    }
+
+    public boolean addToPlaylist(String trackName, LinkedList<Song> playList) {
+        Song song = findSong(trackName);
+        if (song != null) {
+            playList.add(song);
+            return true;
+        }
+        System.out.println("This song " + trackName + "in  not in this album.");
+        return false;
+    }
+}
+
+```
+
+MAin
+
+```java
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.Scanner;
+
+public class Main {
+    private static ArrayList<Album> albums = new ArrayList<>();
+
+    public static void main(String[] args) {
+        Album album = new Album("Strombringer", "Deep Purple");
+        album.addNewSong("stormbringer", 4.35);
+        album.addNewSong("love don't mean a thing", 4.35);
+        album.addNewSong("holy man", 4.35);
+        album.addNewSong("hold on", 4.35);
+        album.addNewSong("lady double dealer", 4.25);
+        album.addNewSong("you can't do it right", 4.5);
+        album.addNewSong("high ball shooter", 4.56);
+        album.addNewSong("the gypsy", 4.35);
+        album.addNewSong("soldier of fortune", 4.44);
+        album.addNewSong("", 4.12);
+        album.addNewSong("", 4.55);
+
+        albums.add(album);
+
+        album = new Album("For Those About to Rock We Salute You", "AC/DC");
+        album.addNewSong("For Those About to Rock (We Salute You)", 4.01);
+        album.addNewSong("Put the Finger on You", 4.01);
+        album.addNewSong("Let's Get It Up", 4.01);
+        album.addNewSong("Inject the Venom", 4.01);
+        album.addNewSong("Snowballed", 4.01);
+        album.addNewSong("Evil Walks", 4.01);
+        album.addNewSong("C.O.D.", 4.01);
+        album.addNewSong("Breaking the Rules", 4.01);
+        album.addNewSong("Night of the Long Knives", 4.01);
+        album.addNewSong("Spellbound", 4.01); // DNE
+
+        albums.add(album);
+
+        LinkedList<Song> platList = new LinkedList<>();
+        albums.get(0).addToPlaylist("high ball shooter", platList);
+        albums.get(0).addToPlaylist("soldier of fortune", platList);
+        albums.get(0).addToPlaylist("high ", platList);
+        albums.get(0).addToPlaylist(1, platList);
+        albums.get(1).addToPlaylist(1, platList);
+        albums.get(1).addToPlaylist(5, platList);
+        albums.get(1).addToPlaylist(3, platList);
+        albums.get(1).addToPlaylist(222, platList);// DNE
+
+        play(platList);
+    }
+
+    public static void play(LinkedList<Song> linkedList) {
+        Scanner scanner = new Scanner(System.in);
+        boolean quit = false;
+        boolean goingForward = true;
+        ListIterator<Song> listIterator = linkedList.listIterator();
+
+        if (linkedList.size() == 0) {
+            System.out.println("this play list do not have any songs");
+            return;
+        } else {
+            System.out.println("Now Playing " + listIterator.next().toString());
+            printOptions();
+        }
+
+        while (!quit) {
+            System.out.println("please select a option");
+            int action = scanner.nextInt();
+            scanner.nextLine();
+            switch (action) {
+                case 0 -> {
+                    quit = true;
+                    System.out.println("Quiting the playlist ...");
+                }
+                case 1 -> {
+                    if (!goingForward) {
+                        if (listIterator.hasNext()) {
+                            listIterator.next();
+                        }
+                        goingForward = true;
+                    }
+                    if (listIterator.hasNext()) {
+                        System.out.println("now playing " + listIterator.next().toString());
+                    } else {
+                        System.out.println("your are at the end of the play list");
+                    }
+                }
+                case 2 -> {
+                    if (goingForward) {
+                        if (listIterator.hasPrevious()) {
+                            listIterator.previous();
+                        }
+                        goingForward = false;
+                    }
+                    if (listIterator.hasPrevious()) {
+                        System.out.println("now playing " + listIterator.previous().toString());
+                    } else {
+                        System.out.println("your are at the start of the playlist");
+                    }
+                }
+                case 3 -> {
+                    if (goingForward) {
+                        if (listIterator.hasPrevious()) {
+                            System.out.println("now replaying " + listIterator.previous().toString());
+                            goingForward = false;
+                        } else {
+                            System.out.println("we are at the beginning of the playlist");
+                        }
+                    } else {
+                        if (listIterator.hasNext()) {
+                            System.out.println("now replaying " + listIterator.next().toString());
+                            goingForward = true;
+                        } else {
+                            System.out.println("we are at the end of the playlist");
+                        }
+                    }
+                }
+                case 4 -> {
+                    printSongsList(linkedList);
+                }
+                case 5 -> {
+                    printOptions();
+                }
+                case 6 -> {
+                    if (linkedList.size() > 0) {
+                        listIterator.remove();
+                        if (listIterator.hasNext()) {
+                            System.out.println("now playing " + listIterator.next().toString());
+                        } else if (listIterator.hasPrevious()) {
+                            System.out.println("Now playing " + listIterator.previous().toString());
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    public static void printOptions() {
+        System.out.println("""
+                press
+                0 to quit the playlist
+                1 to play the next song
+                2 to play the previous song
+                3 to replay the current song
+                4 to list the songs in the playlist
+                5 to print the instruction
+                6 to remove the current song
+                """);
+    }
+
+    public static void printSongsList(LinkedList<Song> songs) {
+        final int[] index = {1};
+        songs.forEach(song -> {
+            System.out.println(index[0] + "." + song.toString());
+            index[0]++;
+        });
+    }
+}
+```
+
+**output**
+
+```bash
+This song high in  not in this album.
+This album does not have a track 222
+Now Playing high ball shooter : 4.56
+press
+0 to quit the playlist
+1 to play the next song
+2 to play the previous song
+3 to replay the current song
+4 to list the songs in the playlist
+5 to print the instruction
+6 to remove the current song
+
+please select a option
+1
+now playing soldier of fortune : 4.44
+please select a option
+1
+now playing stormbringer : 4.35
+please select a option
+1
+now playing For Those About to Rock (We Salute You) : 4.01
+please select a option
+1
+now playing Snowballed : 4.01
+please select a option
+1
+now playing Let's Get It Up : 4.01
+please select a option
+1
+your are at the end of the play list
+please select a option
+2
+now playing Snowballed : 4.01
+please select a option
+1
+now playing Let's Get It Up : 4.01
+please select a option
+1
+your are at the end of the play list
+please select a option
+6
+Now playing Snowballed : 4.01
+please select a option
+4
+1.high ball shooter : 4.56
+2.soldier of fortune : 4.44
+3.stormbringer : 4.35
+4.For Those About to Rock (We Salute You) : 4.01
+5.Snowballed : 4.01
+please select a option
+6
+Now playing For Those About to Rock (We Salute You) : 4.01
+please select a option
+5
+press
+0 to quit the playlist
+1 to play the next song
+2 to play the previous song
+3 to replay the current song
+4 to list the songs in the playlist
+5 to print the instruction
+6 to remove the current song
+
+please select a option
+4
+1.high ball shooter : 4.56
+2.soldier of fortune : 4.44
+3.stormbringer : 4.35
+4.For Those About to Rock (We Salute You) : 4.01
+please select a option
+6
+Now playing stormbringer : 4.35
+please select a option
+4
+1.high ball shooter : 4.56
+2.soldier of fortune : 4.44
+3.stormbringer : 4.35
+please select a option
+6
+Now playing soldier of fortune : 4.44
+please select a option
+4
+1.high ball shooter : 4.56
+2.soldier of fortune : 4.44
+please select a option
+2
+your are at the start of the playlist
+please select a option
+2
+your are at the start of the playlist
+please select a option
+1
+now playing soldier of fortune : 4.44
+please select a option
+4
+1.high ball shooter : 4.56
+2.soldier of fortune : 4.44
+please select a option
+2
+now playing high ball shooter : 4.56
+please select a option
+6
+now playing soldier of fortune : 4.44
+please select a option
+1
+your are at the end of the play list
+please select a option
+4
+1.soldier of fortune : 4.44
+please select a option
+```
