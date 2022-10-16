@@ -180,6 +180,164 @@ let's revisit the linked list challenge.
 
 ### 3. Interfaces Challenge Part 1
 
+```java
+import java.util.List;
+
+public interface ISavable {
+    List<String> write();
+
+    void read(List<String> list);
+}
+```
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Player implements ISavable {
+    private String name;
+    private int hitPoints;
+    private int strength;
+    private String weapon;
+
+    public Player(String name, int hitPoints, int strength) {
+        this.name = name;
+        this.hitPoints = hitPoints;
+        this.strength = strength;
+        this.weapon = "sword";
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getHitPoints() {
+        return hitPoints;
+    }
+
+    public void setHitPoints(int hitPoints) {
+        this.hitPoints = hitPoints;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public String getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(String weapon) {
+        this.weapon = weapon;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" + "name='" + name + '\'' + ", hitPoints=" + hitPoints + ", strength=" + strength + ", weapon='" + weapon + '\'' + '}';
+    }
+
+    @Override
+    public List<String> write() {
+        List<String> values = new ArrayList<>();
+        values.add(0, this.name);
+        values.add(1, String.valueOf(this.hitPoints));
+        values.add(2, String.valueOf(this.strength));
+        values.add(3, this.weapon);
+        return values;
+    }
+
+    @Override
+    public void read(List<String> savedValues) {
+        if (savedValues != null && savedValues.size() > 0) {
+            this.name = savedValues.get(0);
+            this.hitPoints = Integer.parseInt(savedValues.get(1));
+            this.strength = Integer.parseInt(savedValues.get(2));
+            this.weapon = savedValues.get(3);
+        }
+    }
+}
+
+```
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+    Player tim = new Player("chamara",12,100);
+        System.out.println(tim.toString());
+
+        tim.setHitPoints(122);
+        System.out.println(tim.toString());
+
+        tim.setWeapon("Storm bringer");
+        System.out.println(tim.toString());
+        System.out.println("---------------------------------------------------------------");
+        saveObject(tim);
+        loadObject(tim);
+        System.out.println(tim.toString());
+
+
+
+    }
+
+    public static ArrayList<String> readvalues(){
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> values = new ArrayList<>();
+        boolean quit = false;
+        int choice;
+        printInstruction();
+        int index = 0;
+        while (!quit){
+            System.out.println("please enter choice");
+            choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice){
+                case 0 ->{
+                    quit = true;
+                }
+                case 1->{
+                    System.out.println("please enter a name");
+                    String value = scanner.nextLine();
+                    values.add(index,value);
+                    index++;
+                }
+            }
+        }
+        return values;
+    }
+
+    public static void printInstruction(){
+        System.out.println("""
+                press
+                0 - to exit
+                1 - to enter a value
+                """);
+    }
+
+    public static void saveObject(ISavable objectToSave){
+        for(String item:objectToSave.write()){
+            System.out.println("saving "+item+" to the storage device");
+        }
+    }
+
+    public static void loadObject(ISavable objectTLoad){
+        ArrayList<String> values = readvalues();
+        objectTLoad.read(values);
+    }
+}
+```
+
 ### 4. Interfaces Challenge Part 2
 
 ### 5. Inner classes Part 1
