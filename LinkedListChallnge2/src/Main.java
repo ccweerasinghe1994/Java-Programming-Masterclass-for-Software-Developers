@@ -1,10 +1,10 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
 
 public class Main {
-    private static ArrayList<Album> albums = new ArrayList<>();
+    private static List<Album> albums = new ArrayList<>();
 
     public static void main(String[] args) {
         Album album = new Album("Strombringer", "Deep Purple");
@@ -15,7 +15,7 @@ public class Main {
         album.addNewSong("lady double dealer", 4.25);
         album.addNewSong("you can't do it right", 4.5);
         album.addNewSong("high ball shooter", 4.56);
-        album.addNewSong("the gypsy", 4.35);
+        album.addNewSong("the gyps  y", 4.35);
         album.addNewSong("soldier of fortune", 4.44);
         album.addNewSong("", 4.12);
         album.addNewSong("", 4.55);
@@ -36,7 +36,7 @@ public class Main {
 
         albums.add(album);
 
-        LinkedList<Song> platList = new LinkedList<>();
+        List<Song> platList = new ArrayList<>();
         albums.get(0).addToPlaylist("high ball shooter", platList);
         albums.get(0).addToPlaylist("soldier of fortune", platList);
         albums.get(0).addToPlaylist("high ", platList);
@@ -49,7 +49,7 @@ public class Main {
         play(platList);
     }
 
-    public static void play(LinkedList<Song> linkedList) {
+    public static void play(List<Song> linkedList) {
         Scanner scanner = new Scanner(System.in);
         boolean quit = false;
         boolean goingForward = true;
@@ -149,7 +149,7 @@ public class Main {
                 """);
     }
 
-    public static void printSongsList(LinkedList<Song> songs) {
+    public static void printSongsList(List<Song> songs) {
         final int[] index = {1};
         songs.forEach(song -> {
             System.out.println(index[0] + "." + song.toString());

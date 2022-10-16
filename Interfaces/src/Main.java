@@ -9,6 +9,9 @@ public class Main {
         if (deskPhone.isRinging()) {
             System.out.println("your phone is ringing");
         }
-        ;
+        System.out.println("--------------------- mobile phone -------------------");
+        ITelephone chamara = new MobilePhone(123);
+        chamara.callPhone(123);
+        chamara.answer();
     }
 }
