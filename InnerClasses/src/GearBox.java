@@ -11,13 +11,16 @@ public class GearBox {
         gears = new ArrayList<>();
         Gear neutral = new Gear(0, 0.0);
         this.gears.add(neutral);
+        for (int i = 0; i < maxGears; i++) {
+            addGear(i, i * 5.3);
+        }
     }
 
     public void setClutchIn(boolean in) {
         this.isClutchIn = in;
     }
 
-    public void addGear(int gearNumber, double ratio) {
+    private void addGear(int gearNumber, double ratio) {
         if (gearNumber > 0 && gearNumber <= this.maxGears) {
             this.gears.add(new Gear(gearNumber, ratio));
         }
