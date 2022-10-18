@@ -471,12 +471,328 @@ public class Main {
         objectTLoad.read(values);
     }
 }
-```
 
+````
 
 ### 5. Inner classes Part 1
 
+```java
+import java.util.ArrayList;
+
+public class GearBox {
+    private ArrayList<Gear> gears;
+    private int maxGears;
+    private int currentGear;
+    private boolean isClutchIn;
+
+    public GearBox(int maxGears) {
+        this.maxGears = maxGears;
+        gears = new ArrayList<>();
+        Gear neutral = new Gear(0, 0.0);
+        this.gears.add(neutral);
+    }
+
+    public void setClutchIn(boolean in) {
+        this.isClutchIn = in;
+    }
+
+    public void addGear(int gearNumber, double ratio) {
+        if (gearNumber > 0 && gearNumber <= this.maxGears) {
+            this.gears.add(new Gear(gearNumber, ratio));
+        }
+    }
+
+    public void changeGear(int gear) {
+        if (gear >= 0 && gear < this.gears.size() && this.isClutchIn) {
+            this.currentGear = gear;
+            System.out.println("Gear " + gear + " selected");
+        } else {
+            System.out.println("Grind");
+            this.currentGear = 0;
+        }
+    }
+
+    public double wheelSpeed(int revs) {
+        if (isClutchIn) {
+            System.out.println("Scream !");
+            return 0.0;
+        } else {
+            return revs * gears.get(currentGear).ratio;
+        }
+    }
+
+    private class Gear {
+        private int gearNumber;
+        private double ratio;
+
+        public Gear(int gearNumber, double ratio) {
+            this.gearNumber = gearNumber;
+            this.ratio = ratio;
+        }
+
+        public double getRatio() {
+            return ratio;
+        }
+
+        public double driveSpeed(int revs) {
+            return revs * (this.ratio);
+        }
+    }
+}
+```
+
 ### 6. Inner Classes Part 2
+
+GearBox
+
+```java
+import java.util.ArrayList;
+
+public class GearBox {
+    private ArrayList<Gear> gears;
+    private int maxGears;
+    private int currentGear;
+    private boolean isClutchIn;
+
+    public GearBox(int maxGears) {
+        this.maxGears = maxGears;
+        gears = new ArrayList<>();
+        Gear neutral = new Gear(0, 0.0);
+        this.gears.add(neutral);
+        for (int i = 0; i < maxGears; i++) {
+            addGear(i, i * 5.3);
+        }
+    }
+
+    public void setClutchIn(boolean in) {
+        this.isClutchIn = in;
+    }
+
+    private void addGear(int gearNumber, double ratio) {
+        if (gearNumber > 0 && gearNumber <= this.maxGears) {
+            this.gears.add(new Gear(gearNumber, ratio));
+        }
+    }
+
+    public void changeGear(int gear) {
+        if (gear >= 0 && gear < this.gears.size() && this.isClutchIn) {
+            this.currentGear = gear;
+            System.out.println("Gear " + gear + " selected");
+        } else {
+            System.out.println("Grind");
+            this.currentGear = 0;
+        }
+    }
+
+    public double wheelSpeed(int revs) {
+        if (isClutchIn) {
+            System.out.println("Scream !");
+            return 0.0;
+        } else {
+            return revs * gears.get(currentGear).ratio;
+        }
+    }
+
+    private class Gear {
+        private int gearNumber;
+        private double ratio;
+
+        public Gear(int gearNumber, double ratio) {
+            this.gearNumber = gearNumber;
+            this.ratio = ratio;
+        }
+
+        public double getRatio() {
+            return ratio;
+        }
+
+        public double driveSpeed(int revs) {
+            return revs * (this.ratio);
+        }
+    }
+}
+
+```
+
+Main
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        GearBox maclaren = new GearBox(6);
+
+        maclaren.setClutchIn(true);
+        maclaren.changeGear(1);
+        maclaren.setClutchIn(false);
+        System.out.println("Wheel Speed: " + maclaren.wheelSpeed(3000));
+        maclaren.changeGear(2);
+        System.out.println("Wheel Speed: " + maclaren.wheelSpeed(6000));
+        maclaren.setClutchIn(true);
+        maclaren.changeGear(3);
+        maclaren.setClutchIn(false);
+        System.out.println("Wheel Speed: " + maclaren.wheelSpeed(9000));
+
+//        as we can see we are now not using the Gear Class
+
+
+    }
+}
+```
+
+output  
+
+```bash
+Gear 1 selected
+Wheel Speed: 15900.0
+Grind
+Wheel Speed: 0.0
+Gear 3 selected
+Wheel Speed: 143100.0
+```
+
+second example with inner class
+
+Button
+
+```java
+public class Button {
+    private String name;
+    private onClickListener onClickListener;
+
+    public Button(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setOnClickListener(onClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+    }
+
+    public void onClick() {
+        this.onClickListener.onClick(this.name);
+    }
+
+    public interface onClickListener {
+        void onClick(String name);
+    }
+}
+
+```
+
+Main
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final Button buttonPrint = new Button("print");
+
+    public static void main(String[] args) {
+
+//        this class applicable for this block only
+        class ClickListener implements Button.onClickListener {
+            public ClickListener() {
+                System.out.println("i have been attached");
+            }
+
+            @Override
+            public void onClick(String name) {
+                System.out.println(name + " was clicked");
+            }
+        }
+
+        buttonPrint.setOnClickListener(new ClickListener());
+        listen();
+    }
+
+    public static void listen() {
+        boolean quit = false;
+        while (!quit) {
+            int option = scanner.nextInt();
+            scanner.nextLine();
+            switch (option) {
+                case 0 -> quit = true;
+                case 1 -> {
+                    buttonPrint.onClick();
+                }
+            }
+        }
+    }
+}
+```
+
+output
+
+```bash
+i have been attached
+1
+print was clicked
+1
+print was clicked
+```
+
+let's move onto `anonymous classes`.
+
+- they have to declared and instantiated at the same time.
+
+- it's used when there is a local class is required only once.
+
+they are very common for attaching event handlers for user inputs.
+
+ex android apps.
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final Button buttonPrint = new Button("print");
+
+    public static void main(String[] args) {
+//        new Button.onClickListener() is the anonymous class
+
+        buttonPrint.setOnClickListener(new Button.onClickListener() {
+            @Override
+            public void onClick(String name) {
+                System.out.println(name + " is set");
+            }
+        });
+        listen();
+    }
+
+    public static void listen() {
+        boolean quit = false;
+        while (!quit) {
+            int option = scanner.nextInt();
+            scanner.nextLine();
+            switch (option) {
+                case 0 -> quit = true;
+                case 1 -> {
+                    buttonPrint.onClick();
+                }
+            }
+        }
+    }
+}
+```
+
+output
+
+```bash
+1
+print is set
+1
+print is set
+1
+print is set
+0
+
+Process finished with exit code 0
+```
 
 ### 7. Inner Classes Challenge
 
