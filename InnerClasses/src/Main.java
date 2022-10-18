@@ -1,20 +1,33 @@
+import java.util.Scanner;
+
 public class Main {
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final Button buttonPrint = new Button("print");
+
     public static void main(String[] args) {
-        GearBox maclaren = new GearBox(6);
+//        new Button.onClickListener() is the anonymous class
 
-        maclaren.setClutchIn(true);
-        maclaren.changeGear(1);
-        maclaren.setClutchIn(false);
-        System.out.println("Wheel Speed: " + maclaren.wheelSpeed(3000));
-        maclaren.changeGear(2);
-        System.out.println("Wheel Speed: " + maclaren.wheelSpeed(6000));
-        maclaren.setClutchIn(true);
-        maclaren.changeGear(3);
-        maclaren.setClutchIn(false);
-        System.out.println("Wheel Speed: " + maclaren.wheelSpeed(9000));
+        buttonPrint.setOnClickListener(new Button.onClickListener() {
+            
+            @Override
+            public void onClick(String name) {
+                System.out.println(name + " is set");
+            }
+        });
+        listen();
+    }
 
-//        as we can see we are now not using the Gear Class
-
-
+    public static void listen() {
+        boolean quit = false;
+        while (!quit) {
+            int option = scanner.nextInt();
+            scanner.nextLine();
+            switch (option) {
+                case 0 -> quit = true;
+                case 1 -> {
+                    buttonPrint.onClick();
+                }
+            }
+        }
     }
 }

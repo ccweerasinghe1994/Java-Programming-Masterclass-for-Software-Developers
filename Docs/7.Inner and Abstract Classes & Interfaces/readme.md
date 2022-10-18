@@ -650,10 +650,148 @@ Gear 3 selected
 Wheel Speed: 143100.0
 ```
 
-second example
+second example with inner class
+
+Button
 
 ```java
+public class Button {
+    private String name;
+    private onClickListener onClickListener;
 
+    public Button(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setOnClickListener(onClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+    }
+
+    public void onClick() {
+        this.onClickListener.onClick(this.name);
+    }
+
+    public interface onClickListener {
+        void onClick(String name);
+    }
+}
+
+```
+
+Main
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final Button buttonPrint = new Button("print");
+
+    public static void main(String[] args) {
+
+//        this class applicable for this block only
+        class ClickListener implements Button.onClickListener {
+            public ClickListener() {
+                System.out.println("i have been attached");
+            }
+
+            @Override
+            public void onClick(String name) {
+                System.out.println(name + " was clicked");
+            }
+        }
+
+        buttonPrint.setOnClickListener(new ClickListener());
+        listen();
+    }
+
+    public static void listen() {
+        boolean quit = false;
+        while (!quit) {
+            int option = scanner.nextInt();
+            scanner.nextLine();
+            switch (option) {
+                case 0 -> quit = true;
+                case 1 -> {
+                    buttonPrint.onClick();
+                }
+            }
+        }
+    }
+}
+```
+
+output
+
+```bash
+i have been attached
+1
+print was clicked
+1
+print was clicked
+```
+
+let's move onto `anonymous classes`.
+
+- they have to declared and instantiated at the same time.
+
+- it's used when there is a local class is required only once.
+
+they are very common for attaching event handlers for user inputs.
+
+ex android apps.
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final Button buttonPrint = new Button("print");
+
+    public static void main(String[] args) {
+//        new Button.onClickListener() is the anonymous class
+
+        buttonPrint.setOnClickListener(new Button.onClickListener() {
+            @Override
+            public void onClick(String name) {
+                System.out.println(name + " is set");
+            }
+        });
+        listen();
+    }
+
+    public static void listen() {
+        boolean quit = false;
+        while (!quit) {
+            int option = scanner.nextInt();
+            scanner.nextLine();
+            switch (option) {
+                case 0 -> quit = true;
+                case 1 -> {
+                    buttonPrint.onClick();
+                }
+            }
+        }
+    }
+}
+```
+
+output
+
+```bash
+1
+print is set
+1
+print is set
+1
+print is set
+0
+
+Process finished with exit code 0
 ```
 
 ### 7. Inner Classes Challenge
