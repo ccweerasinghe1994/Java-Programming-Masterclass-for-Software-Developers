@@ -1072,7 +1072,46 @@ i am not very good at this can i go for a swim instead
 
 ### 10. Interface vs Abstract Class
 
+interface has a relationship
+
+- Dog has a 4 legs
+
+inheritance is a relationship
+
+- Dog is a Animal
+
 ### 11. Abstract Class Challenge Part 1
+
+let's compare interfaces and abstract classes
+
+in our Bird class we have added a abstract method fly(). but not every bird can fly.
+so instead of adding the fly() abstract method we can use a interface to add the fly() method.
+
+```java
+public interface CanFly {
+    void fly();
+}
+```
+
+then we can remove the abstract method from the bird class and implement the CanFly interface.
+
+```java
+@Override
+public void fly() {
+    System.out.println("flapping it's wings");
+}
+```
+
+then we can remove the abstract implementation in Parrot class.
+
+```java
+@Override
+public void fly() {
+    System.out.println(getName()+ "is flying");
+}
+```
+
+in our Penguin class we can add the bird class implementation for fly() as well.
 
 ### 12. Abstract Class Challenge Part 2
 
