@@ -881,7 +881,194 @@ public class Album {
 
 ### 8. Abstract Classes Part 1
 
+we can make the interface more resuable by doing this.
+
+```java
+import java.util.List;
+
+public interface ISavable {
+    List write();
+
+    void read(List list);
+}
+
+```
+
+but this must be balanced.
+
 ### 9. Abstract Classes Part 2
+
+let's create a abstract animal class.
+
+```java
+public abstract class Animal {
+    private final String name;
+
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    public abstract void eat();
+    public abstract void breathe();
+
+    public String getName() {
+        return name;
+    }
+}
+```
+
+let's create Dog class which will inherits from the abstract class.
+
+```java
+public class Dog extends Animal{
+    public Dog(String name) {
+        super(name);
+    }
+
+    @Override
+    public void eat() {
+        System.out.println(getName()+" is eating");
+    }
+
+    @Override
+    public void breathe() {
+        System.out.println(getName()+" is breathing");
+    }
+}
+
+```
+
+let's create the instance in our main class
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog("cutie");
+        dog.eat();
+        dog.breathe();
+    }
+}
+```
+
+output
+
+```bash
+cutie is eating
+cutie is breathing
+```
+
+let's create a bird class
+
+```java
+public abstract class Bird extends Animal{
+    public Bird(String name) {
+        super(name);
+    }
+
+    @Override
+    public void eat() {
+        System.out.println(getName()+ " is pecking and eating");
+    }
+
+    @Override
+    public void breathe() {
+        System.out.println(getName()+ "is breathing");
+    }
+}
+
+```
+
+let's use them in the main class
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        
+
+        Bird bird = new Bird("humming");
+        bird.breathe();
+        bird.eat();
+    }
+}
+```
+
+output
+
+```bash
+hummingis breathing
+humming is pecking and eating
+```
+
+let's say we want to add a fly method to the bird class.
+
+```java
+public abstract void fly();
+```
+
+now let's create a Parrot class which will extend from the Bird Class.
+
+```java
+public class Parrot extends Bird{
+    public Parrot(String name) {
+        super(name);
+    }
+
+    @Override
+    public void fly() {
+        System.out.println(getName()+ "is flying");
+    }
+}
+```
+
+here we can override the bird class methods or inherit them.
+
+in the main class
+
+```java
+ Parrot parrot = new Parrot("humming");
+        parrot.breathe();
+        parrot.eat();
+        parrot.breathe();
+```
+
+output
+
+```bash
+hummingis breathing
+humming is pecking and eating
+hummingis breathing
+```
+
+let's create a penguin class as well.
+
+```java
+public class Penguin extends Bird{
+    public Penguin(String name) {
+        super(name);
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("i am not very good at this can i go for a swim instead");
+    }
+}
+
+```
+
+here we are overriding the fly method.
+
+in the main class
+
+```java
+Penguin penguin = new Penguin("mike");
+penguin.fly();
+```
+
+output
+
+```bash
+i am not very good at this can i go for a swim instead
+```
 
 ### 10. Interface vs Abstract Class
 
