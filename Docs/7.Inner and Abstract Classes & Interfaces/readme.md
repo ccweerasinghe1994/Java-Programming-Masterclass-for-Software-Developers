@@ -1080,8 +1080,6 @@ inheritance is a relationship
 
 - Dog is a Animal
 
-### 11. Abstract Class Challenge Part 1
-
 let's compare interfaces and abstract classes
 
 in our Bird class we have added a abstract method fly(). but not every bird can fly.
@@ -1112,6 +1110,8 @@ public void fly() {
 ```
 
 in our Penguin class we can add the bird class implementation for fly() as well.
+
+### 11. Abstract Class Challenge Part 1
 
 ### 12. Abstract Class Challenge Part 2
 
