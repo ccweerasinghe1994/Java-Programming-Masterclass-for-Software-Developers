@@ -896,8 +896,6 @@ public interface ISavable {
 
 but this must be balanced.
 
-### 9. Abstract Classes Part 2
-
 let's create a abstract animal class.
 
 ```java
@@ -1070,7 +1068,7 @@ output
 i am not very good at this can i go for a swim instead
 ```
 
-### 10. Interface vs Abstract Class
+### 9. Abstract Classes Part 2
 
 interface has a relationship
 
@@ -1114,6 +1112,25 @@ public void fly() {
 ```
 
 in our Penguin class we can add the bird class implementation for fly() as well.
+
+### 10. Interface vs Abstract Class
+
+#### Abstract Class
+
+![img](../img/105.png)
+
+#### use Abstract Class When
+
+![img](../img/106.png)
+
+#### Interface
+
+![img](../img/107.png)
+![img](../img/108.png)
+
+#### When To Use Interfaces
+
+![img](../img/109.png)
 
 ### 11. Abstract Class Challenge Part 1
 
