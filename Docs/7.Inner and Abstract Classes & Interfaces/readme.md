@@ -1086,6 +1086,10 @@ in our Bird class we have added a abstract method fly(). but not every bird can 
 so instead of adding the fly() abstract method we can use a interface to add the fly() method.
 
 ```java
+public abstract class Bird extends Animal implements CanFly{ ....
+```
+
+```java
 public interface CanFly {
     void fly();
 }
