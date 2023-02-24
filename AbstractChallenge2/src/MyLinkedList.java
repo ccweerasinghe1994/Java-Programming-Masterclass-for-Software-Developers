@@ -27,32 +27,30 @@ public class MyLinkedList implements NodeList {
                     currentItem = currentItem.next();
                 } else {
 //                    there is no next so add to the end
-                    currentItem.setNext(newItem);
-                    newItem.setPrevious(currentItem);
+//                    we can do this because we are returning the correct item.
+                    currentItem.setNext(newItem).setPrevious(currentItem);
                 }
                 return true;
             } else if (comparison > 0) {
 //                new item is less, we have to enter before
                 if (currentItem.previous() != null) {
-                    currentItem.previous().setNext(newItem);
-                    newItem.setPrevious(currentItem.previous());
-                    currentItem.setPrevious(newItem);
-                    newItem.setNext(currentItem);
+                    currentItem.previous().setNext(newItem).setPrevious(currentItem.previous());
+                    currentItem.setPrevious(newItem).setNext(currentItem);
                 } else {
 //                    the node with the previous is root
-                    newItem.setNext(root);
-                    this.root.setPrevious(newItem);
+                    newItem.setNext(root).setPrevious(newItem);
                     this.root = newItem;
 
                 }
                 return true;
-            }else {
+            } else {
 //                equal
                 System.out.println(newItem.getValue() + " is already present, not added 👽");
                 return false;
             }
 
         }
+        return false;
     }
 
     @Override
@@ -62,6 +60,13 @@ public class MyLinkedList implements NodeList {
 
     @Override
     public void traverse(ListItem root) {
-
+        if (root == null) {
+            System.out.println("the list is empty");
+        } else {
+            while (root != null) {
+                System.out.println(root.getValue());
+                root = root.next();
+            }
+        }
     }
 }
