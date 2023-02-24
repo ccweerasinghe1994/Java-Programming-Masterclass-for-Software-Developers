@@ -896,8 +896,6 @@ public interface ISavable {
 
 but this must be balanced.
 
-### 9. Abstract Classes Part 2
-
 let's create a abstract animal class.
 
 ```java
@@ -1070,7 +1068,7 @@ output
 i am not very good at this can i go for a swim instead
 ```
 
-### 10. Interface vs Abstract Class
+### 9. Abstract Classes Part 2
 
 interface has a relationship
 
@@ -1084,6 +1082,10 @@ let's compare interfaces and abstract classes
 
 in our Bird class we have added a abstract method fly(). but not every bird can fly.
 so instead of adding the fly() abstract method we can use a interface to add the fly() method.
+
+```java
+public abstract class Bird extends Animal implements CanFly{ ....
+```
 
 ```java
 public interface CanFly {
@@ -1111,7 +1113,193 @@ public void fly() {
 
 in our Penguin class we can add the bird class implementation for fly() as well.
 
+### 10. Interface vs Abstract Class
+
+#### Abstract Class
+
+![img](../img/105.png)
+
+#### use Abstract Class When
+
+![img](../img/106.png)
+
+#### Interface
+
+![img](../img/107.png)
+![img](../img/108.png)
+
+#### When To Use Interfaces
+
+![img](../img/109.png)
+
 ### 11. Abstract Class Challenge Part 1
+
+let's create the abstract class for the list item.
+****
+
+```java
+public abstract class ListItem {
+    //    here we are creating instances of the same class
+    protected ListItem leftLink = null;
+    protected ListItem rightLink = null;
+    // we are trying to be as flexible as possible with the value.
+    protected Object value;
+
+    public ListItem(Object value) {
+        this.value = value;
+    }
+
+    //    let's create the abstract methods
+    abstract ListItem next();
+
+    abstract ListItem setNext(ListItem item);
+
+    abstract ListItem previous();
+
+    abstract ListItem setPrevious(ListItem item);
+
+    abstract int compareTo(ListItem item);
+
+    //    these are for the value
+    public Object getValue() {
+        return value;
+    }
+
+    public void setValue(Object value) {
+        this.value = value;
+    }
+}
+
+```
+
+now let's create a class to inherit from the class.
+**Node**
+
+```java
+public class Node extends ListItem {
+    public Node(Object value) {
+        super(value);
+    }
+
+    @Override
+    ListItem next() {
+        return this.rightLink;
+    }
+
+    @Override
+    ListItem setNext(ListItem item) {
+        this.rightLink = item;
+        return rightLink;
+    }
+
+    @Override
+    ListItem previous() {
+        return this.leftLink;
+    }
+
+    @Override
+    ListItem setPrevious(ListItem item) {
+        this.leftLink = item;
+        return leftLink;
+    }
+
+    //    since we are planing to use a string type as the value we can use compareTo method.
+    @Override
+    int compareTo(ListItem item) {
+        if (item != null) {
+            return ((String) super.getValue()).compareTo((String) item.value);
+        }
+        return -1;
+    }
+}
+
+```
+
+now let's create interface to implement on to the NodeList class.
+
+```java
+public interface NodeList {
+    ListItem getRoot();
+
+    boolean addItem(ListItem listItem);
+
+    boolean removeItem(ListItem listItem);
+
+    void traverse(ListItem root);
+}
+```
+
+now create the nodeList class
+
+```java
+public class MyLinkedList implements NodeList {
+    private ListItem root = null;
+
+    public MyLinkedList(ListItem root) {
+        this.root = root;
+    }
+
+    @Override
+    public ListItem getRoot() {
+        return root;
+    }
+
+    @Override
+    public boolean addItem(ListItem newItem) {
+        if (this.root == null) {
+//         this is empty, so this becomes the head of the list
+            this.root = newItem;
+            return true;
+        }
+        ListItem currentItem = this.root;
+//      we are going to loop through
+        while (currentItem != null) {
+            int comparison = currentItem.compareTo(newItem);
+            if (comparison < 0) {
+//                so the new item is grater, we have to move if possible
+                if (currentItem.next() != null) {
+                    currentItem = currentItem.next();
+                } else {
+//                    there is no next so add to the end
+                    currentItem.setNext(newItem);
+                    newItem.setPrevious(currentItem);
+                }
+                return true;
+            } else if (comparison > 0) {
+//                new item is less, we have to enter before
+                if (currentItem.previous() != null) {
+                    currentItem.previous().setNext(newItem);
+                    newItem.setPrevious(currentItem.previous());
+                    currentItem.setPrevious(newItem);
+                    newItem.setNext(currentItem);
+                } else {
+//                    the node with the previous is root
+                    newItem.setNext(root);
+                    this.root.setPrevious(newItem);
+                    this.root = newItem;
+
+                }
+                return true;
+            }else {
+//                equal
+                System.out.println(newItem.getValue() + " is already present, not added 👽");
+                return false;
+            }
+
+        }
+    }
+
+    @Override
+    public boolean removeItem(ListItem listItem) {
+        return false;
+    }
+
+    @Override
+    public void traverse(ListItem root) {
+
+    }
+}
+```
 
 ### 12. Abstract Class Challenge Part 2
 
