@@ -8,5 +8,24 @@ public class Hello {
         if ((topScore > secondTopScore) && (topScore < 100)) {
             System.out.println("Greater than second top score and less than 100");
         }
+
+
+        //    logical OR operator
+        boolean isFirst = false;
+        boolean secondValue = true;
+        if (isFirst || secondValue) {
+            System.out.println("Value is true");
+        }
+
+//        Terinary operator
+        boolean isCar = false;
+        boolean wasCar = isCar ? true : false;
+        if (wasCar) {
+            System.out.println("wasCar is true");
+        }else {
+            System.out.println("wasCar is false");
+        }
     }
+
+
 }
