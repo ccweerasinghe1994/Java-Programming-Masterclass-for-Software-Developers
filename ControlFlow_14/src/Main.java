@@ -15,6 +15,8 @@ public class Main {
         System.out.println(getQuarter("December"));
         System.out.println(getQuarter("Unknown"));
 
+        System.out.println(getNatoAlphabet("Hello"));
+
     }
 
     public static String getQuarter(String month){
@@ -28,5 +30,47 @@ public class Main {
                 yield "Unknown Quarter";
             }
         };
+    }
+
+//    Write a method that takes a String and returns the NATO phonetic alphabet for each letter in the String.
+//    Example: getNatoAlphabet("Hello") -> "Hotel Echo Lima Lima Oscar"
+//    Example: getNatoAlphabet("Hi") -> "Hotel India"
+
+
+    public static String getNatoAlphabet(String word){
+        String result = "";
+        for (int i = 0; i < word.length(); i++) {
+            result += switch (word.charAt(i)) {
+                case 'A', 'a' -> "Alpha ";
+                case 'B', 'b' -> "Bravo ";
+                case 'C', 'c' -> "Charlie ";
+                case 'D', 'd' -> "Delta ";
+                case 'E', 'e' -> "Echo ";
+                case 'F', 'f' -> "Foxtrot ";
+                case 'G', 'g' -> "Golf ";
+                case 'H', 'h' -> "Hotel ";
+                case 'I', 'i' -> "India ";
+                case 'J', 'j' -> "Juliet ";
+                case 'K', 'k' -> "Kilo ";
+                case 'L', 'l' -> "Lima ";
+                case 'M', 'm' -> "Mike ";
+                case 'N', 'n' -> "November ";
+                case 'O', 'o' -> "Oscar ";
+                case 'P', 'p' -> "Papa ";
+                case 'Q', 'q' -> "Quebec ";
+                case 'R', 'r' -> "Romeo ";
+                case 'S', 's' -> "Sierra ";
+                case 'T', 't' -> "Tango ";
+                case 'U', 'u' -> "Uniform ";
+                case 'V', 'v' -> "Victor ";
+                case 'W', 'w' -> "Whiskey ";
+                case 'X', 'x' -> "X-ray ";
+                case 'Y', 'y' -> "Yankee ";
+                case 'Z', 'z' -> "Zulu ";
+                default -> "Unknown ";
+            };
+        }
+        return result;
+
     }
 }
