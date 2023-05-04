@@ -12,7 +12,15 @@ public class Car {
     }
 
     public void setMake(String make) {
-        this.make = make;
+        if (make == null || make.isEmpty()) {
+            this.make = "Unknown";
+            return;
+        }
+        String lowerCase = make.toLowerCase();
+        switch (lowerCase) {
+            case "porsche", "ferrari", "lamborghini", "lotus" -> this.make = make;
+            default -> this.make = "UnSupported";
+        }
     }
 
     public String getModel() {
